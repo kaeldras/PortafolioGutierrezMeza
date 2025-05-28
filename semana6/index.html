@@ -1,1 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Semana 6</title>
+    <link rel="stylesheet" href="../style.css"> 
+    <style>
+        /* Estilos adicionales para los botones de ejercicio */
+        .exercise-buttons-container {
+            display: flex;
+            flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
+            justify-content: center;
+            gap: 15px; /* Espacio entre los botones */
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
 
+        .exercise-buttons-container .week-button {
+            padding: 12px 25px; /* Ajusta el padding para los botones */
+            font-size: 1em; /* Tamaño de fuente para los botones */
+            min-width: 150px; /* Ancho mínimo para que se vean uniformes */
+            text-align: center;
+        }
+
+        .image-description {
+            text-align: center;
+            margin-top: 10px;
+            font-style: italic;
+            color: #555;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>MI PORTAFOLIO ELECTRÓNICO</h1>
+        <p>Desarrollo de Aplicaciones Web</p>
+    </header>
+
+    <main class="main-content-container">
+        <div class="info-section">
+            <div class="welcome-box">
+                <h2>Semana 6: Componentes en React con JSX y Práctica Calificada 3</h2>
+                
+                <h3>Descripción de temas aprendidos</h3>
+                <p>En esta semana, profundizamos en los conceptos clave de React, centrándonos en cómo construir interfaces de usuario de manera eficiente y declarativa utilizando componentes y JSX. Los temas principales cubiertos fueron:</p>
+                <ul>
+                    <li>**Renderización de HTML en React:** Entendimos cómo React se encarga de mostrar la interfaz de usuario en el navegador. Se recalcó el rol de `ReactDOM.render()` (o `ReactDOM.createRoot().render()` en React 18+) para inyectar componentes React en el DOM real, apoyándose en el **Virtual DOM** para optimizar las actualizaciones.</li>
+                    <li>**Componentes en React (a fondo):** Reforzamos la idea de que los componentes son la base de React, unidades reutilizables que encapsulan lógica y UI. Diferenciamos entre:
+                        <ul>
+                            <li>**Componentes de Clase:** Basados en clases de ES6, que manejan estado y ciclo de vida.</li>
+                            <li>**Componentes Funcionales (con Hooks):** Introducción a los componentes funcionales, que con la llegada de los Hooks (como `useState` y `useEffect`) permiten manejar estado y efectos secundarios sin necesidad de clases, siendo la forma recomendada actualmente.</li>
+                        </ul>
+                    </li>
+                    <li>**JSX (JavaScript XML) Detallado:** Exploramos a fondo JSX, la extensión de sintaxis que nos permite escribir la estructura de la interfaz de usuario directamente en JavaScript. Aprendimos sobre:
+                        <ul>
+                            <li>La necesidad de devolver un solo elemento raíz.</li>
+                            <li>La forma de insertar expresiones JavaScript usando `{}`.</li>
+                            <li>Atributos de HTML en JSX (e.g., `className` en lugar de `class`).</li>
+                            <li>Comentarios en JSX.</li>
+                        </ul>
+                    </li>
+                    <li>**Props (Propiedades):** Se consolidó el concepto de `props` como la forma de pasar datos de un componente padre a un componente hijo, enfatizando su inmutabilidad.</li>
+                    <li>**State (Estado):** Se revisó cómo el `state` permite a los componentes gestionar datos internos que pueden cambiar a lo largo del tiempo y provocar re-renderizados de la interfaz.</li>
+                    <li>**Eventos en React:** La manera declarativa y unificada de manejar eventos de usuario (clics, inputs, etc.) en componentes React.</li>
+                    <li>**Composición de Componentes:** La importancia de construir interfaces complejas componiendo componentes más pequeños y simples, fomentando la reutilización y la mantenibilidad del código.</li>
+                </ul>
+                <p>Esta semana fue fundamental para entender la arquitectura y las mejores prácticas en el desarrollo de aplicaciones con React, sentando las bases para proyectos más grandes y complejos.</p>
+                
+                <h3>Práctica Calificada 3 - Resultados</h3>
+                <p>La Práctica Calificada 3 consistió en el desarrollo de dos ejercicios que aplicaban los conocimientos de JavaScript (sin librerías externas) para crear funcionalidades dinámicas e interactivas. Estos ejercicios demostraron la capacidad de manipular el DOM, gestionar eventos y aplicar lógica compleja para satisfacer requisitos específicos.</p>
+                
+                <div class="exercise-buttons-container">
+                    <a href="practica_calificada3/EJERCICIO 1 COMPLETO.html" target="_blank" class="week-button">Práctica 3 - Ejercicio 1</a>
+                    <a href="practica_calificada3/EJERCICIO 2 COMPLETO.html" target="_blank" class="week-button">Práctica 3 - Ejercicio 2</a>
+                </div>
+
+                <div class="practice-image-container">
+                    <img src="./images/practica_calificada3.png" alt="Captura de pantalla de la Práctica Calificada 3 de la Semana 6">
+                    <p class="image-description"><i>Captura de pantalla de la Práctica Calificada 3 (o imagen representativa si hay varias).</i></p>
+                </div>
+                
+            </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <a href="../index.html" class="week-button">Volver al Inicio</a>
+    </footer>
+
+</body>
+</html>
