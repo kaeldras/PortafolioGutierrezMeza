@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Panel de Control con Selector de Color</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    .window {
+      background-color: #1e1e1e; /* fondo negro para el cuadro */
+      border: 1px solid #444;
+      border-radius: 5px;
+      width: 500px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #333;
+      padding: 10px;
+      border-radius: 5px 5px 0 0;
+      margin: -20px -20px 20px -20px;
+    }
+
+    .controls i {
+      margin-left: 10px;
+      color: #ccc;
+      cursor: pointer;
+    }
+
+    .control-group {
+      margin-bottom: 20px;
+    }
+
+    .control-group label {
+      display: block;
+      margin-bottom: 5px;
+      color: #fff;
+    }
+
+    .slider-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .slider-wrapper i {
+      color: #ccc;
+    }
+
+    input[type=range] {
+      flex-grow: 1;
+      -webkit-appearance: none;
+      background: #555;
+      height: 4px;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 14px;
+      height: 14px;
+      background: #ddd;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    input[type=range]::-moz-range-thumb {
+      width: 14px;
+      height: 14px;
+      background: #ddd;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+
+    .card {
+      width: 400px;
+      background-color: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      overflow: hidden;
+      margin-top: 30px;
+    }
+
+    .color-display {
+      height: 150px;
+      border-bottom: 1px solid #ddd;
+      border-radius: 12px 12px 0 0;
+      background-color: rgb(0, 0, 0);
+    }
+
+    .controls {
+      padding: 20px;
+    }
+
+    .slider-group {
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input[type="range"] {
+      width: 70%;
+      vertical-align: middle;
+    }
+
+    input[type="number"] {
+      width: 20%;
+      padding: 5px;
+      margin-left: 5px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Ventana de Controles -->
+  <div class="window">
+    <div class="header">
+      <div></div>
+      <div class="controls">
+        <i class="fas fa-sun"></i>
+        <i class="fas fa-adjust"></i>
+        <i class="fas fa-copy"></i>
+        <i class="fas fa-expand"></i>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>Volumen Medio</label>
+      <div class="slider-wrapper">
+        <i class="fas fa-volume-down"></i>
+        <input type="range">
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>Volumen de Alarma</label>
+      <div class="slider-wrapper">
+        <i class="fas fa-circle"></i>
+        <input type="range">
+        <i class="fas fa-clock"></i>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <label>Callback al hacer clic en el ícono</label>
+      <div class="slider-wrapper">
+        <i class="fas fa-search"></i>
+        <input type="range">
+        <i class="fas fa-search"></i>
+      </div>
+    </div>
+  </div>
+
+  <!-- Panel de Control RGB -->
+  <div class="card">
+    <div id="colorBox" class="color-display"></div>
+    <div class="controls">
+      <div class="slider-group">
+        <label>Rojo</label>
+        <input type="range" id="red" min="0" max="255" value="0">
+        <input type="number" id="redVal" min="0" max="255" value="0">
+      </div>
+      <div class="slider-group">
+        <label>Verde</label>
+        <input type="range" id="green" min="0" max="255" value="0">
+        <input type="number" id="greenVal" min="0" max="255" value="0">
+      </div>
+      <div class="slider-group">
+        <label>Azul</label>
+        <input type="range" id="blue" min="0" max="255" value="0">
+        <input type="number" id="blueVal" min="0" max="255" value="0">
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Obtener elementos
+    const red = document.getElementById('red');
+    const green = document.getElementById('green');
+    const blue = document.getElementById('blue');
+    const redVal = document.getElementById('redVal');
+    const greenVal = document.getElementById('greenVal');
+    const blueVal = document.getElementById('blueVal');
+    const colorBox = document.getElementById('colorBox');
+
+    function updateColor() {
+      const r = parseInt(red.value);
+      const g = parseInt(green.value);
+      const b = parseInt(blue.value);
+
+      colorBox.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+
+      redVal.value = r;
+      greenVal.value = g;
+      blueVal.value = b;
+    }
+
+    // Listeners para sliders
+    red.addEventListener('input', updateColor);
+    green.addEventListener('input', updateColor);
+    blue.addEventListener('input', updateColor);
+
+    // Listeners para inputs numéricos
+    redVal.addEventListener('input', () => { red.value = redVal.value; updateColor(); });
+    greenVal.addEventListener('input', () => { green.value = greenVal.value; updateColor(); });
+    blueVal.addEventListener('input', () => { blue.value = blueVal.value; updateColor(); });
+  </script>
+</body>
+</html>
+
+
