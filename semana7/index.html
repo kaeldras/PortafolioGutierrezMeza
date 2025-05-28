@@ -1,1 +1,214 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Semana 7</title>
+    <link rel="stylesheet" href="../style.css"> 
+    <style>
+        /* Estilos específicos para la semana 7 */
+        .code-example {
+            background-color: #eef;
+            border-left: 5px solid #007bff;
+            padding: 15px;
+            margin: 20px 0;
+            overflow-x: auto; /* Permite scroll horizontal si el código es muy largo */
+            border-radius: 5px;
+            font-family: 'Consolas', 'Monaco', monospace;
+            font-size: 0.9em;
+            color: #333;
+        }
 
+        .code-example pre {
+            margin: 0;
+            white-space: pre-wrap; /* Permite que el texto se envuelva */
+            word-wrap: break-word; /* Rompe palabras largas */
+        }
+
+        .info-section h3 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 8px;
+            margin-top: 30px;
+            margin-bottom: 15px;
+        }
+
+        .info-section h4 {
+            color: #34495e;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+
+        .info-section ul {
+            list-style: disc;
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .info-section ul ul {
+            list-style: circle;
+            margin-left: 20px;
+        }
+
+        .info-section p {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <h1>MI PORTAFOLIO ELECTRÓNICO</h1>
+        <p>Desarrollo de Aplicaciones Web</p>
+    </header>
+
+    <main class="main-content-container">
+        <div class="info-section">
+            <div class="welcome-box">
+                <h2>Semana 7: Uso de Hooks en React</h2>
+                
+                <h3>Descripción de temas aprendidos: Los Hooks en React</h3>
+                <p>En esta semana crucial, nos sumergimos de lleno en el concepto y la aplicación de los **Hooks en React**, una característica introducida en la versión 16.8 que revolucionó la forma de escribir componentes funcionales. Los Hooks permiten a estos componentes "engancharse" a las características de estado y ciclo de vida de React, que antes eran exclusivas de los componentes de clase, simplificando enormemente el código y la lógica de las aplicaciones.</p>
+
+                <h4>¿Qué es un Hook?</h4>
+                <p>Un Hook es una función de JavaScript que permite a los componentes funcionales acceder a las funcionalidades de estado y ciclo de vida de React. Esto significa que podemos añadir estado y manejar efectos secundarios en nuestros componentes sin necesidad de convertirlos en clases, haciendo el código más conciso y fácil de entender.</p>
+
+                <h4>Tipos de Hooks Fundamentales</h4>
+                <p>Los Hooks más utilizados y esenciales que abordamos fueron:</p>
+                
+                <ul>
+                    <li>
+                        **`useState`**: Este Hook permite añadir estado a componentes funcionales. Retorna un par de valores: el estado actual y una función para actualizarlo. Es fundamental para manejar datos que cambian en el tiempo dentro de un componente, como un contador, el contenido de un input, o la visibilidad de un elemento.
+                        <p><strong>Ejemplo de uso de `useState`:</strong></p>
+                        <div class="code-example">
+                            <pre><code>import React, { useState } from 'react';
+
+function Contador() {
+  const [cuenta, setCuenta] = useState(0); // Inicializa 'cuenta' en 0
+
+  return (
+    &lt;div&gt;
+      &lt;p&gt;Has hecho clic {cuenta} veces&lt;/p&gt;
+      &lt;button onClick={() => setCuenta(cuenta + 1)}&gt;
+        Haz clic aquí
+      &lt;/button&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        **`useEffect`**: Se utiliza para manejar efectos secundarios (side effects) en componentes funcionales. Los efectos secundarios son operaciones que ocurren fuera del flujo de renderizado normal de React, como la manipulación directa del DOM, suscripciones a eventos, temporizadores, o la carga de datos desde una API. Se ejecuta después de cada renderizado del componente por defecto, pero se puede controlar su ejecución con un array de dependencias.
+                        <p><strong>Ejemplo de uso de `useEffect` (actualizando el título del documento):</strong></p>
+                        <div class="code-example">
+                            <pre><code>import React, { useState, useEffect } from 'react';
+
+function TituloDocumento() {
+  const [titulo, setTitulo] = useState('Mi App React');
+
+  useEffect(() => {
+    document.title = titulo; // Actualiza el título del documento
+    // Opcional: función de limpieza
+    return () => {
+      // Por ejemplo, restaurar el título original si el componente se desmonta
+      // document.title = 'Portafolio Principal';
+    };
+  }, [titulo]); // Se ejecuta cada vez que 'titulo' cambia
+
+  return (
+    &lt;div&gt;
+      &lt;input
+        type="text"
+        value={titulo}
+        onChange={(e) => setTitulo(e.target.value)}
+      /&gt;
+      &lt;p&gt;El título actual es: {titulo}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+}</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        **`useContext`**: Permite acceder al valor de un contexto de React. El Context API es una forma de compartir datos que pueden considerarse "globales" para un árbol de componentes de React, sin tener que pasar props manualmente a través de cada nivel. Es ideal para temas, preferencias de idioma o estado de autenticación.
+                    </li>
+                    <li>
+                        **`useReducer`**: Es una alternativa a `useState` para la gestión de estado más compleja. Es especialmente útil cuando el estado tiene múltiples subvalores o cuando el siguiente estado depende del anterior. Es muy similar a la forma en que Redux gestiona el estado.
+                    </li>
+                    <li>
+                        **`useRef`**: Retorna un objeto ref mutable cuya propiedad `.current` se inicializa con el argumento pasado. Se utiliza comúnmente para acceder a elementos del DOM directamente (sin React), o para almacenar un valor mutable que no cause un re-renderizado cuando cambia (a diferencia del estado).
+                    </li>
+                </ul>
+
+                <h4>Hooks de React Router Dom 6</h4>
+                <p>Para la navegación en aplicaciones React que utilizan la librería `React Router Dom` en su versión 6, se introdujeron hooks específicos que simplifican enormemente la gestión de rutas:</p>
+                <ul>
+                    <li>
+                        **`useNavigate`**: Este hook proporciona una función para navegar programáticamente entre diferentes rutas de la aplicación. Es el reemplazo moderno de `useHistory` y es muy versátil.
+                        <p><strong>Ejemplo:</strong></p>
+                        <div class="code-example">
+                            <pre><code>import { useNavigate } from 'react-router-dom';
+
+function HomeButton() {
+  const navigate = useNavigate();
+
+  const handleClick = () => {
+    navigate('/dashboard'); // Navega a la ruta /dashboard
+    // navigate(-1); // Para ir a la página anterior en el historial
+  };
+
+  return (
+    &lt;button onClick={handleClick}&gt;Ir al Dashboard&lt;/button&gt;
+  );
+}</code></pre>
+                        </div>
+                    </li>
+                    <li>
+                        **`useParams`**: Permite acceder a los parámetros dinámicos que se encuentran en la URL de la ruta actual. Es muy útil para extraer IDs u otros identificadores de la URL.
+                        <p><strong>Ejemplo (para una ruta como `/productos/:id`):</strong></p>
+                        <div class="code-example">
+                            <pre><code>import { useParams } from 'react-router-dom';
+
+function DetallesProducto() {
+  const { id } = useParams(); // Si la ruta es /productos/123, id será "123"
+
+  return (
+    &lt;div&gt;
+      &lt;h2&gt;Detalles del Producto: {id}&lt;/h2&gt;
+      {/* Aquí puedes cargar los detalles del producto con ese ID */}
+    &lt;/div&gt;
+  );
+}</code></pre>
+                        </div>
+                    </li>
+                </ul>
+
+                <h4>Conceptos Relacionados: Lazy Loading y Suspense</h4>
+                <p>Aunque no son Hooks en sí mismos, "Lazy Loading" y "Suspense" son características de React que a menudo se utilizan en conjunto con los Hooks para optimizar el rendimiento de las aplicaciones:</p>
+                <ul>
+                    <li>
+                        **Lazy Loading (Carga Perezosa)**: Es una técnica para cargar componentes o módulos de forma asíncrona, solo cuando son necesarios. Esto ayuda a reducir el tamaño del paquete inicial de la aplicación, mejorando significativamente el tiempo de carga. Se implementa con `React.lazy()`.
+                    </li>
+                    <li>
+                        **Suspense**: Es un componente de React que permite "esperar" a que el código de un componente cargado perezosamente se descargue y se muestre un indicador de carga (fallback) mientras tanto. Esencial para proporcionar una experiencia de usuario fluida durante la carga asíncrona.
+                    </li>
+                </ul>
+
+                <h4>Gestión de Estado en React</h4>
+                <p>La gestión del estado es un pilar en React, y los Hooks han proporcionado herramientas poderosas para abordarla. Se discutieron diferentes enfoques:</p>
+                <ul>
+                    <li>**Estado Local (`useState`, `useReducer`)**: Para datos que solo afectan a un componente específico.</li>
+                    <li>**Context API (`useContext`)**: Para compartir estado de forma global sin prop drilling.</li>
+                    <li>**Librerías de Gestión de Estado (ej. Redux, Zustand)**: Para aplicaciones complejas que requieren una gestión de estado más centralizada y predecible.</li>
+                </ul>
+                <p>El estudio de los Hooks ha sido un paso fundamental para escribir código React más moderno, eficiente y fácil de mantener.</p>
+                
+                </div>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <a href="../index.html" class="week-button">Volver al Inicio</a>
+    </footer>
+
+</body>
+</html>
