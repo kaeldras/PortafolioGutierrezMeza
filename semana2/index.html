@@ -1,1 +1,352 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Semana 2</title>
+    <link rel="stylesheet" href="../style.css"> 
+</head>
+<body>
 
+    <header class="site-header">
+        <h1>MI PORTAFOLIO ELECTRÓNICO</h1>
+        <p>Desarrollo de Aplicaciones Web</p>
+    </header>
+
+    <main class="main-content-container">
+        <div class="info-section">
+            <div class="welcome-box">
+                <h2>Semana 2: Fundamentos de HTML, CSS y Productividad con Emmet</h2>
+                
+                <h3>Descripción de temas aprendidos</h3>
+                <p>En esta segunda semana, profundizamos en los lenguajes fundamentales para el desarrollo web: **HTML (HyperText Markup Language)** y **CSS (Cascading Style Sheets)**.</p>
+                <p>Aprendimos cómo HTML estructura el contenido de una página web a través de sus diversas etiquetas (como `<h1>`, `<p>`, `<a>`, `<div>`, `<img>`, etc.) y cómo se construye el **Árbol DOM (Document Object Model)**.</p>
+                <p>En cuanto a CSS, exploramos cómo dar estilo a ese contenido HTML. Se cubrieron temas esenciales como:</p>
+                <ul>
+                    <li>**¿Qué es CSS?** Y su importancia para la presentación visual.</li>
+                    <li>Las diferentes formas de **incluir CSS** en un documento HTML (inline, interno y externo).</li>
+                    <li>Los **selectores CSS** (etiqueta, clase, ID) y su uso para aplicar estilos a elementos específicos.</li>
+                    <li>**Pseudo-clases** (como `:hover`, `:active`) para estilos basados en el estado del elemento.</li>
+                    <li>El **Box Model (Modelo de Caja)**, que explica cómo se distribuyen los elementos en la página (margen, borde, relleno, contenido).</li>
+                    <li>Unidades de longitud (absolutas y relativas).</li>
+                    <li>Introducción a **Flexbox y Grid Layout** como herramientas avanzadas para la maquetación responsiva.</li>
+                    <li>Conceptos de **Diseño Responsivo**, **Inclusión y Accesibilidad Universal** (WCAG 2.1), y las propiedades ARIA.</li>
+                </ul>
+                <p>Además, reforzamos el uso de **Emmet**, una herramienta de productividad integrada en Visual Studio Code que permite generar estructuras HTML y CSS complejas de forma muy rápida utilizando abreviaciones. Esto optimiza significativamente el tiempo de desarrollo.</p>
+                
+                <h3>Ejercicios de laboratorio - Resultados</h3>
+                <p>Como ejercicio principal de la semana, trabajamos en la generación de código HTML utilizando abreviaciones de **Emmet**. Esto nos permitió practicar la sintaxis y ver la eficiencia de esta herramienta para construir rápidamente elementos comunes de una página web, como menús de navegación, tablas y estructuras semánticas. El resultado de esta práctica incluyó la generación de:</p>
+                <ul>
+                    <li>Un menú de navegación (`<nav>`).</li>
+                    <li>Tablas con `thead` y diversas filas.</li>
+                    <li>Estructuras HTML semánticas (`<header>`, `<nav>`, `<section>`, `<article>`, `<aside>`, `<footer>`).</li>
+                    <li>Tablas más grandes con estructuras específicas.</li>
+                    <li>Un ejemplo de proyecto web con estructura completa.</li>
+                </ul>
+                <p>Este ejercicio práctico consolidó nuestro entendimiento de cómo Emmet acelera el proceso de escritura de código. Puedes ver un ejemplo de uso de Emmet similar al que se vio en clase en este enlace: <a href="https://mrst3fano.github.io/Emmet.html" target="_blank" rel="noopener noreferrer">Ejemplo Emmet</a>.</p>
+
+                <p>A continuación, se presenta el código HTML generado durante la práctica de Emmet:</p>
+                <pre><code style="background-color: #f8f8f8; padding: 10px; border-radius: 5px; display: block; overflow-x: auto;">
+// Pregunta 1: Menú de navegación
+&lt;nav class="nav"&gt;
+    &lt;ul&gt;
+        &lt;li&gt;&lt;a href="page1.html"&gt;Link1&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="page2.html"&gt;Link2&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="page3.html"&gt;Link3&lt;/a&gt;&lt;/li&gt;
+        &lt;li&gt;&lt;a href="page4.html"&gt;Link4&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+&lt;/nav&gt;
+
+// Pregunta 2: Tabla con thead y 3 filas
+&lt;table class="table"&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th scope="col"&gt;#&lt;/th&gt;
+            &lt;th scope="col"&gt;First&lt;/th&gt;
+            &lt;th scope="col"&gt;Second&lt;/th&gt;
+            &lt;th scope="col"&gt;Tree&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;1&lt;/th&gt;
+            &lt;td&gt;Mark&lt;/td&gt;
+            &lt;td&gt;Otto&lt;/td&gt;
+            &lt;td&gt;Jhonson&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;2&lt;/th&gt;
+            &lt;td&gt;Mark&lt;/td&gt;
+            &lt;td&gt;Otto&lt;/td&gt;
+            &lt;td&gt;Jhonson&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;th scope="row"&gt;3&lt;/th&gt;
+            &lt;td&gt;Mark&lt;/td&gt;
+            &lt;td&gt;Otto&lt;/td&gt;
+            &lt;td&gt;Jhonson&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+// Pregunta 3: Estructura semántica
+&lt;div class="container"&gt;
+    &lt;header id="header"&gt;Header&lt;/header&gt;
+    &lt;nav id="nav"&gt;Navigation&lt;/nav&gt;
+    &lt;section id="section"&gt;Main Content&lt;/section&gt;
+    &lt;article id="article"&gt;Article&lt;/article&gt;
+    &lt;aside id="aside"&gt;Sidebar&lt;/aside&gt;
+    &lt;footer id="footer"&gt;Footer&lt;/footer&gt;
+&lt;/div&gt;
+
+// Pregunta 4: Tabla 4x21 con IDs
+&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;id&lt;/th&gt;
+            &lt;th&gt;nombres&lt;/th&gt;
+            &lt;th&gt;apellidos&lt;/th&gt;
+            &lt;th&gt;dirección&lt;/th&gt;
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;1&lt;/td&gt;
+            &lt;td&gt;Nombre 1&lt;/td&gt;
+            &lt;td&gt;Apellido 1&lt;/td&gt;
+            &lt;td&gt;Dirección 1&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;2&lt;/td&gt;
+            &lt;td&gt;Nombre 2&lt;/td&gt;
+            &lt;td&gt;Apellido 2&lt;/td&gt;
+            &lt;td&gt;Dirección 2&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;3&lt;/td&gt;
+            &lt;td&gt;Nombre 3&lt;/td&gt;
+            &lt;td&gt;Apellido 3&lt;/td&gt;
+            &lt;td&gt;Dirección 3&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;4&lt;/td&gt;
+            &lt;td&gt;Nombre 4&lt;/td&gt;
+            &lt;td&gt;Apellido 4&lt;/td&gt>
+            &lt;td&gt;Dirección 4&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;5&lt;/td&gt;
+            &lt;td&gt;Nombre 5&lt;/td&gt;
+            &lt;td&gt;Apellido 5&lt;/td&gt;
+            &lt;td&gt;Dirección 5&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;6&lt;/td&gt;
+            &lt;td&gt;Nombre 6&lt;/td&gt;
+            &lt;td&gt;Apellido 6&lt;/td&gt;
+            &lt;td&gt;Dirección 6&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;7&lt;/td&gt;
+            &lt;td&gt;Nombre 7&lt;/td&gt;
+            &lt;td&gt;Apellido 7&lt;/td&gt;
+            &lt;td&gt;Dirección 7&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;8&lt;/td&gt;
+            &lt;td&gt;Nombre 8&lt;/td&gt;
+            &lt;td&gt;Apellido 8&lt;/td&gt;
+            &lt;td&gt;Dirección 8&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;9&lt;/td&gt;
+            &lt;td&gt;Nombre 9&lt;/td&gt;
+            &lt;td&gt;Apellido 9&lt;/td&gt;
+            &lt;td&gt;Dirección 9&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;10&lt;/td&gt;
+            &lt;td&gt;Nombre 10&lt;/td&gt;
+            &lt;td&gt;Apellido 10&lt;/td&gt;
+            &lt;td&gt;Dirección 10&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;11&lt;/td&gt;
+            &lt;td&gt;Nombre 11&lt;/td&gt;
+            &lt;td&gt;Apellido 11&lt;/td&gt;
+            &lt;td&gt;Dirección 11&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;12&lt;/td&gt;
+            &lt;td&gt;Nombre 12&lt;/td&gt;
+            &lt;td&gt;Apellido 12&lt;/td&gt;
+            &lt;td&gt;Dirección 12&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;13&lt;/td&gt;
+            &lt;td&gt;Nombre 13&lt;/td&gt;
+            &lt;td&gt;Apellido 13&lt;/td&gt;
+            &lt;td&gt;Dirección 13&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;14&lt;/td&gt;
+            &lt;td&gt;Nombre 14&lt;/td&gt;
+            &lt;td&gt;Apellido 14&lt;/td&gt;
+            &lt;td&gt;Dirección 14&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;15&lt;/td&gt;
+            &lt;td&gt;Nombre 15&lt;/td&gt;
+            &lt;td&gt;Apellido 15&lt;/td&gt;
+            &lt;td&gt;Dirección 15&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;16&lt;/td&gt;
+            &lt;td&gt;Nombre 16&lt;/td&gt;
+            &lt;td&gt;Apellido 16&lt;/td&gt;
+            &lt;td&gt;Dirección 16&lt;/td&gt;
+        &lt;/tr&gt>
+        &lt;tr&gt;
+            &lt;td&gt;17&lt;/td&gt;
+            &lt;td&gt;Nombre 17&lt;/td&gt;
+            &lt;td&gt;Apellido 17&lt;/td&gt;
+            &lt;td&gt;Dirección 17&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;18&lt;/td&gt;
+            &lt;td&gt;Nombre 18&lt;/td&gt;
+            &lt;td&gt;Apellido 18&lt;/td&gt;
+            &lt;td&gt;Dirección 18&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;19&lt;/td&gt;
+            &lt;td&gt;Nombre 19&lt;/td&gt;
+            &lt;td&gt;Apellido 19&lt;/td&gt;
+            &lt;td&gt;Dirección 19&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+            &lt;td&gt;20&lt;/td&gt;
+            &lt;td&gt;Nombre 20&lt;/td&gt;
+            &lt;td&gt;Apellido 20&lt;/td&gt;
+            &lt;td&gt;Dirección 20&lt;/td&gt;
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;
+
+// Pregunta 5: Tabla 20x2 descendente
+&lt;table&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila20&lt;/td&gt;
+        &lt;td&gt;Contenido20&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila19&lt;/td&gt;
+        &lt;td&gt;Contenido19&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila18&lt;/td&gt;
+        &lt;td&gt;Contenido18&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila17&lt;/td&gt;
+        &lt;td&gt;Contenido17&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila16&lt;/td&gt;
+        &lt;td&gt;Contenido16&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila15&lt;/td&gt;
+        &lt;td&gt;Contenido15&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila14&lt;/td&gt;
+        &lt;td&gt;Contenido14&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila13&lt;/td&gt;
+        &lt;td&gt;Contenido13&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila12&lt;/td&gt;
+        &lt;td&gt;Contenido12&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila11&lt;/td&gt;
+        &lt;td&gt;Contenido11&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila10&lt;/td&gt;
+        &lt;td&gt;Contenido10&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila9&lt;/td&gt;
+        &lt;td&gt;Contenido9&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila8&lt;/td&gt;
+        &lt;td&gt;Contenido8&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila7&lt;/td&gt;
+        &lt;td&gt;Contenido7&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila6&lt;/td&gt;
+        &lt;td&gt;Contenido6&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila5&lt;/td&gt;
+        &lt;td&gt;Contenido5&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila4&lt;/td&gt;
+        &lt;td&gt;Contenido4&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila3&lt;/td&gt;
+        &lt;td&gt;Contenido3&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila2&lt;/td&gt;
+        &lt;td&gt;Contenido2&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+        &lt;td&gt;fila1&lt;/td&gt;
+        &lt;td&gt;Contenido1&lt;/td&gt;
+    &lt;/tr&gt;
+&lt;/table&gt;
+
+// Pregunta 6: Proyecto web completo
+&lt;!doctype html&gt;&lt;html lang="es"&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;
+&lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;
+&lt;title&gt;Proyecto Web&lt;/title&gt;
+&lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;script src="js/app.js" defer&gt;&lt;/script&gt;
+&lt;body&gt;
+    &lt;header id="header"&gt;
+        &lt;nav&gt;
+            &lt;ul&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Enlace 1&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Enlace 2&lt;/a&gt;&lt;/li&gt;
+                &lt;li&gt;&lt;a href="#"&gt;Enlace 3&lt;/a&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+            &lt;main id="main"&gt;
+                &lt;section class="section"&gt;
+                    &lt;h2&gt;Sección 1&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;section class="section"&gt;
+                    &lt;h2&gt;Sección 2&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;section class="section"&gt;
+                    &lt;h2&gt;Sección 3&lt;/h2&gt;
+                    &lt;p&gt;Lorem ipsum&lt;/p&gt;
+                &lt;/section&gt;
+                &lt;footer id="footer"&gt;&copy; 2025&lt;/footer&gt;
+            &lt;/main&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+&lt;/body&gt;
+</code>
