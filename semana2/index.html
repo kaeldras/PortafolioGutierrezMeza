@@ -27,7 +27,7 @@
                     <li>Las diferentes formas de **incluir CSS** en un documento HTML (inline, interno y externo).</li>
                     <li>Los **selectores CSS** (etiqueta, clase, ID) y su uso para aplicar estilos a elementos específicos.</li>
                     <li>**Pseudo-clases** (como `:hover`, `:active`) para estilos basados en el estado del elemento.</li>
-                    <li>El **Box Model (Modelo de Caja)**, que explica cómo se distribuyen los elementos en la página (margen, borde, relleno, contenido).</li>
+                    <li>El **Box Model (Modelo de Caja)**, que explica cómo se distribuyen los elementos en la página (margen, borde, relleno, relleno, contenido).</li>
                     <li>Unidades de longitud (absolutas y relativas).</li>
                     <li>Introducción a **Flexbox y Grid Layout** como herramientas avanzadas para la maquetación responsiva.</li>
                     <li>Conceptos de **Diseño Responsivo**, **Inclusión y Accesibilidad Universal** (WCAG 2.1), y las propiedades ARIA.</li>
@@ -35,19 +35,19 @@
                 <p>Además, reforzamos el uso de **Emmet**, una herramienta de productividad integrada en Visual Studio Code que permite generar estructuras HTML y CSS complejas de forma muy rápida utilizando abreviaciones. Esto optimiza significativamente el tiempo de desarrollo.</p>
                 
                 <h3>Ejercicios de laboratorio - Resultados</h3>
-                <p>Como ejercicio principal de la semana, trabajamos en la generación de código HTML utilizando abreviaciones de **Emmet**. Esto nos permitió practicar la sintaxis y ver la eficiencia de esta herramienta para construir rápidamente elementos comunes de una página web, como menús de navegación, tablas y estructuras semánticas. El resultado de esta práctica incluyó la generación de:</p>
+                <p>Como ejercicio principal de la semana, trabajamos en la generación de código HTML utilizando abreviaciones de **Emmet**. Esto nos permitió practicar la sintaxis y ver la eficiencia de esta herramienta para construir rápidamente elementos comunes de una página web, como menús de navegación, tablas y estructuras semánticas.</p>
+                <p>El resultado de esta práctica incluyó la generación de:</p>
                 <ul>
-                    <li>Un menú de navegación (`<nav>`).</li>
+                    <li>Un menú de navegación (`&lt;nav&gt;`).</li>
                     <li>Tablas con `thead` y diversas filas.</li>
-                    <li>Estructuras HTML semánticas (`<header>`, `<nav>`, `<section>`, `<article>`, `<aside>`, `<footer>`).</li>
+                    <li>Estructuras HTML semánticas (`&lt;header&gt;`, `&lt;nav&gt;`, `&lt;section&gt;`, `&lt;article&gt;`, `&lt;aside&gt;`, `&lt;footer&gt;`).</li>
                     <li>Tablas más grandes con estructuras específicas.</li>
                     <li>Un ejemplo de proyecto web con estructura completa.</li>
                 </ul>
-                <p>Este ejercicio práctico consolidó nuestro entendimiento de cómo Emmet acelera el proceso de escritura de código. Puedes ver un ejemplo de uso de Emmet similar al que se vio en clase en este enlace: <a href="https://mrst3fano.github.io/Emmet.html" target="_blank" rel="noopener noreferrer">Ejemplo Emmet</a>.</p>
+                <p>Este ejercicio práctico consolidó nuestro entendimiento de cómo Emmet acelera el proceso de escritura de código.</p>
 
                 <p>A continuación, se presenta el código HTML generado durante la práctica de Emmet:</p>
                 <pre><code style="background-color: #f8f8f8; padding: 10px; border-radius: 5px; display: block; overflow-x: auto;">
-// Pregunta 1: Menú de navegación
 &lt;nav class="nav"&gt;
     &lt;ul&gt;
         &lt;li&gt;&lt;a href="page1.html"&gt;Link1&lt;/a&gt;&lt;/li&gt;
@@ -57,7 +57,6 @@
     &lt;/ul&gt;
 &lt;/nav&gt;
 
-// Pregunta 2: Tabla con thead y 3 filas
 &lt;table class="table"&gt;
     &lt;thead&gt;
         &lt;tr&gt;
@@ -89,7 +88,6 @@
     &lt;/tbody&gt;
 &lt;/table&gt;
 
-// Pregunta 3: Estructura semántica
 &lt;div class="container"&gt;
     &lt;header id="header"&gt;Header&lt;/header&gt;
     &lt;nav id="nav"&gt;Navigation&lt;/nav&gt;
@@ -99,7 +97,6 @@
     &lt;footer id="footer"&gt;Footer&lt;/footer&gt;
 &lt;/div&gt;
 
-// Pregunta 4: Tabla 4x21 con IDs
 &lt;table&gt;
     &lt;thead&gt;
         &lt;tr&gt;
@@ -131,7 +128,7 @@
         &lt;tr&gt;
             &lt;td&gt;4&lt;/td&gt;
             &lt;td&gt;Nombre 4&lt;/td&gt;
-            &lt;td&gt;Apellido 4&lt;/td&gt>
+            &lt;td&gt;Apellido 4&lt;/td&gt;
             &lt;td&gt;Dirección 4&lt;/td&gt;
         &lt;/tr&gt;
         &lt;tr&gt;
@@ -205,7 +202,7 @@
             &lt;td&gt;Nombre 16&lt;/td&gt;
             &lt;td&gt;Apellido 16&lt;/td&gt;
             &lt;td&gt;Dirección 16&lt;/td&gt;
-        &lt;/tr&gt>
+        &lt;/tr&gt;
         &lt;tr&gt;
             &lt;td&gt;17&lt;/td&gt;
             &lt;td&gt;Nombre 17&lt;/td&gt;
@@ -233,7 +230,6 @@
     &lt;/tbody&gt;
 &lt;/table&gt;
 
-// Pregunta 5: Tabla 20x2 descendente
 &lt;table&gt;
     &lt;tr&gt;
         &lt;td&gt;fila20&lt;/td&gt;
@@ -317,7 +313,6 @@
     &lt;/tr&gt;
 &lt;/table&gt;
 
-// Pregunta 6: Proyecto web completo
 &lt;!doctype html&gt;&lt;html lang="es"&gt;&lt;head&gt;&lt;meta charset="UTF-8"&gt;
 &lt;meta name="viewport" content="width=device-width,initial-scale=1.0"&gt;
 &lt;title&gt;Proyecto Web&lt;/title&gt;
@@ -350,6 +345,7 @@
     &lt;/header&gt;
 &lt;/body&gt;
 </code>
+
 <div style="text-align: center; margin-top: 20px; margin-bottom: 30px;">
     <a href="PRACTICA EMMET.html" target="_blank" class="week-button">Ver Ejercicio Completo de Emmet</a>
 </div>
