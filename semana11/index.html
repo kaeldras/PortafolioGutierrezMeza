@@ -1,1 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Semana 11: Artículo Científico</title>
+    <link rel="stylesheet" href="../style.css"> 
+</head>
+<body>
 
+    <header class="site-header">
+        <h1>MI PORTAFOLIO ELECTRÓNICO</h1>
+        <p>Desarrollo de Aplicaciones Web</p>
+    </header>
+
+    <main class="main-content-container">
+        <div class="info-section">
+            <div class="welcome-box">
+                <h2>Semana 11: Búsqueda de Artículo Científico – Sistema Inteligente</h2>
+                
+                <h3>Descripción de la actividad</h3>
+                <p>En esta semana, realizamos una <strong>búsqueda de un artículo científico</strong> relacionado con el desarrollo de un <strong>sistema inteligente utilizando inteligencia artificial (IA)</strong>, con el objetivo de seleccionar uno que pudiera servir como base para nuestro <strong>proyecto final</strong>.</p>
+
+                <p>El criterio principal fue que el artículo describiera un sistema implementado en <strong>Python</strong>, ya que es el lenguaje que estamos utilizando en el curso y que permite una integración directa con tecnologías web.</p>
+
+                <p>Después de revisar diversas fuentes científicas (como ScienceDirect, IEEE Xplore y Springer), seleccionamos el siguiente artículo:</p>
+
+                <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                    <strong>Título:</strong> Un nuevo enfoque para gestionar datos faltantes para mejorar el sistema de detección de intrusiones en la red<br>
+                    <strong>Autores:</strong> Mahjabeen Tahir, Azizol Abdullah, Nur Izura Udzir, Khairul Azhar Kasmiran<br>
+                    <strong>Revista:</strong> Ciberseguridad y aplicaciones (2025)<br>
+                    <strong>DOI:</strong> 10.1016/j.cyap.2024.100063
+                </div>
+
+                <h3>Resumen del artículo científico</h3>
+                <p>Este artículo presenta un <strong>sistema inteligente de detección de intrusiones en redes (IDS)</strong> basado en <strong>aprendizaje profundo</strong> y <strong>gestión de datos faltantes</strong>. El sistema, llamado <strong>DMDI (Deep Learning-Based Missing Data Imputation)</strong>, tiene como objetivo mejorar la precisión de los modelos de detección de ciberataques al corregir uno de los principales problemas en los conjuntos de datos de seguridad: los <strong>valores faltantes</strong>.</p>
+
+                <p>Los datos incompletos en conjuntos de datos de redes (como NSL-KDD y UNSW-NB15) pueden afectar negativamente el rendimiento de los modelos de IA. Para resolverlo, los autores proponen un enfoque en dos fases:</p>
+
+                <ol>
+                    <li><strong>Imputación inicial:</strong> Usa un <strong>codificador automático apilado con reducción de ruido (SDA)</strong> para reconstruir los datos faltantes a partir de patrones aprendidos.</li>
+                    <li><strong>Refinamiento:</strong> Aplica <strong>potenciación de gradiente (Gradient Boosting)</strong> para mejorar la precisión de la imputación.</li>
+                </ol>
+
+                <p>El sistema fue implementado en <strong>Python 3</strong>, utilizando bibliotecas como <strong>Keras, Scikit-learn y NumPy</strong>, y probado en una plataforma con Windows 11, procesador Intel Core i5 y 12 GB de RAM.</p>
+
+                <h3>Resultados clave del sistema</h3>
+                <ul>
+                    <li>Se evaluó con cinco clasificadores: <strong>SVM, KNN, regresión logística, árbol de decisión y bosque aleatorio</strong>.</li>
+                    <li>Después de la imputación con DMDI, se lograron mejoras de precisión entre <strong>0.95 y 0.97</strong>.</li>
+                    <li>El método demostró ser más eficiente que técnicas tradicionales como <strong>KNN, MICE y regresión múltiple</strong>.</li>
+                    <li>El sistema es especialmente útil en entornos donde la calidad de los datos es crítica: <strong>ciberseguridad, salud, finanzas y redes de sensores</strong>.</li>
+                </ul>
+
+                <h3>Relevancia para el proyecto final</h3>
+                <p>Este artículo es altamente relevante para nuestro proyecto final porque:</p>
+                <ul>
+                    <li>Es un ejemplo real de un <strong>sistema inteligente desarrollado en Python</strong>.</li>
+                    <li>Combina <strong>IA, preprocesamiento de datos y análisis de seguridad</strong>, temas que podemos adaptar.</li>
+                    <li>La metodología es clara, replicable y bien documentada.</li>
+                    <li>Podemos usar partes del código (como el autoencoder o los clasificadores) como base para nuestro propio sistema.</li>
+                    <li>Demuestra cómo la <strong>calidad de los datos</strong> influye directamente en el rendimiento del modelo, un aspecto clave en cualquier proyecto de IA.</li>
+                </ul>
+
+                <h3>Reflexión: ¿Qué aprendí? y ¿Cómo aprendí?</h3>
+                <p>Esta semana fue fundamental para ampliar mi visión sobre los sistemas inteligentes. Aprendí que no basta con tener un buen modelo de IA; también es crucial tener <strong>datos de calidad</strong>. El artículo me mostró cómo técnicas avanzadas como los autoencoders pueden usarse para mejorar la precisión de un sistema de detección de intrusiones. Aprendí investigando: busqué artículos en bases de datos científicas, comparé metodologías y seleccioné uno que fuera técnico, claro y aplicable. Me impresionó ver que el sistema fue implementado en Python, lo que me da confianza de que podré replicar facilmente al final del semestre como parte del proyecto final
