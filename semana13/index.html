@@ -1,1 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Semana 12: PHP Laravel</title>
+    <link rel="stylesheet" href="../style.css"> 
+</head>
+<body>
 
+    <header class="site-header">
+        <h1>MI PORTAFOLIO ELECTRÓNICO</h1>
+        <p>Desarrollo de Aplicaciones Web</p>
+    </header>
+
+    <main class="main-content-container">
+        <div class="info-section">
+            <div class="welcome-box">
+                <h2>Semana 12: Desarrollo Backend – PHP con Laravel</h2>
+                
+                <h3>Descripción de temas aprendidos</h3>
+                <p>En esta semana, exploramos el desarrollo backend utilizando <strong>PHP</strong> junto con uno de sus frameworks más populares: <strong>Laravel</strong>. Aprendimos que PHP (PHP: Hypertext Preprocessor) es un lenguaje de programación del lado del servidor, ampliamente utilizado para crear aplicaciones web dinámicas.</p>
+
+                <p>Estudiamos cómo funciona PHP: cuando un usuario solicita una página con código PHP, el servidor lo procesa mediante un intérprete, que genera como resultado código HTML puro, el cual es enviado al navegador. Esto permite crear contenido dinámico como formularios, validaciones, acceso a bases de datos y más.</p>
+
+                <p>Luego, ingresamos al mundo de <strong>Laravel</strong>, un potente framework de PHP que sigue el patrón <strong>MVC (Modelo-Vista-Controlador)</strong> y que permite desarrollar aplicaciones web de forma más rápida, organizada y segura. Laravel ofrece herramientas modernas que simplifican tareas comunes del desarrollo web.</p>
+
+                <p>Los conceptos clave que aprendimos fueron:</p>
+                <ul>
+                    <li><strong>Composer:</strong> El gestor de dependencias de PHP, similar a Maven en Java. Permite instalar Laravel y sus librerías de forma sencilla.</li>
+                    <li><strong>Artisan:</strong> La herramienta de línea de comandos de Laravel, que automatiza tareas como crear controladores, modelos, migraciones, etc.</li>
+                    <li><strong>Rutas (Routes):</strong> Definen las URLs de la aplicación y las asocian a un controlador o acción específica.</li>
+                    <li><strong>Controladores (Controllers):</strong> Agrupan la lógica de negocio y gestionan las solicitudes del usuario.</li>
+                    <li><strong>Vistas con Blade:</strong> Motor de plantillas de Laravel que permite crear interfaces dinámicas mezclando HTML y PHP de forma limpia.</li>
+                    <li><strong>Eloquent ORM:</strong> Sistema de mapeo objeto-relacional que permite interactuar con la base de datos usando sintaxis PHP en lugar de SQL directo.</li>
+                    <li><strong>Migraciones y Seeds:</strong> Permiten gestionar la estructura de la base de datos de forma programática y llenarla con datos de prueba.</li>
+                    <li><strong>Middlewares:</strong> Filtros que se ejecutan antes o después de una solicitud, usados para autenticación, autorización o validación.</li>
+                </ul>
+
+                <h3>Ejercicios de laboratorio – Resultados</h3>
+                <p>Realizamos los siguientes ejercicios prácticos:</p>
+
+                <ul>
+                    <li><strong>Ejercicio 1: Crear un proyecto Laravel desde cero.</strong>
+                      <p>Usamos el instalador global de Laravel para crear un nuevo proyecto:</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">laravel new estudiantes-app</pre>
+                      <p>Luego, accedimos al directorio y ejecutamos el servidor de desarrollo:</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">cd estudiantes-app
+php artisan serve</pre>
+                      <p>El proyecto se inició correctamente y fue accesible desde <code>http://localhost:8000</code>.</p>
+                    </li>
+
+                    <li><strong>Ejercicio 2: Configurar conexión a MySQL y crear un modelo con migración.</strong>
+                      <p>Editamos el archivo <code>.env</code> para configurar la base de datos:</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">DB_DATABASE=academico
+DB_USERNAME=root
+DB_PASSWORD=tu_contraseña</pre>
+                      <p>Luego, creamos el modelo <code>Estudiante</code> con su migración:</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">php artisan make:model Estudiante -m</pre>
+                      <p>Editamos la migración para definir los campos y ejecutamos:</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">php artisan migrate</pre>
+                      <p>La tabla <code>estudiantes</code> se creó correctamente en la base de datos.</p>
+                    </li>
+
+                    <li><strong>Ejercicio 3: Crear un formulario de registro con Laravel, Blade y Tailwind CSS.</strong>
+                      <p>Configuramos Tailwind CSS para dar estilos modernos a la interfaz:</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">npm install -D tailwindcss@3 postcss autoprefixer
+npx tailwindcss init -p</pre>
+                      <p>Definimos rutas en <code>routes/web.php</code>, creamos un controlador y una vista con Blade. El formulario permitía registrar estudiantes y guardaba los datos en la base de datos mediante Eloquent.</p>
+                      <p>El diseño fue limpio y responsivo gracias a Tailwind, y el uso de <code>@csrf</code> garantizó la seguridad del formulario.</p>
+                    </li>
+                </ul>
+
+                <h3>Estructura de Directorios de Laravel</h3>
+                <p>Aprendimos que Laravel tiene una estructura de carpetas bien definida que facilita la organización del código:</p>
+                <ul>
+                    <li><strong>app/:</strong> Contiene los modelos, controladores, middleware y providers.</li>
+                    <li><strong>routes/:</strong> Define las rutas web y API.</li>
+                    <li><strong>resources/views/:</strong> Almacena las vistas Blade.</li>
+                    <li><strong>database/migrations/:</strong> Gestiona la estructura de la base de datos.</li>
+                    <li><strong>public/:</strong> Punto de entrada de la aplicación (<code>index.php</code>).</li>
+                    <li><strong>config/:</strong> Archivos de configuración (base de datos, sesiones, etc.).</li>
+                    <li><strong>storage/:</strong> Almacena logs, caché y archivos subidos.</li>
+                    <li><strong>vendor/:</strong> Dependencias instaladas por Composer.</li>
+                </ul>
+
+                <h3>Reflexión: ¿Qué aprendí? y ¿Cómo aprendí?</h3>
+                <p>Esta semana fue muy enriquecedora porque me permitió conocer un nuevo ecosistema de desarrollo backend: PHP con Laravel. Aprendí que Laravel no solo es un framework poderoso, sino también muy amigable para el desarrollador, gracias a herramientas como Artisan y Eloquent. Lo más interesante fue ver cómo con comandos simples pude crear modelos, migraciones y controladores, y cómo Blade simplifica la creación de interfaces dinámicas. Aprendí haciendo: cada error en la conexión a la base de datos o en la definición de rutas fue una oportunidad para investigar, leer la documentación oficial y entender mejor cómo funciona Laravel. Sentí una gran satisfacción al ver mi formulario funcionando y almacenando datos en MySQL. Ahora tengo una visión más amplia de las tecnologías backend disponibles.</p>
+                
+                <a href="../index.html" class="week-button" style="margin-top: 30px; display: inline-block;">Volver al Inicio</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
