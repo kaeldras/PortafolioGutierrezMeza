@@ -19,22 +19,24 @@
                 <h2>Semana 9: Desarrollo Backend – Arquitectura y Principios</h2>
                 
                 <h3>Descripción de temas aprendidos</h3>
-                <p>En esta semana, profundizamos en el <strong>Desarrollo Backend</strong>, comprendiendo su papel fundamental dentro de la arquitectura cliente-servidor que sustenta las aplicaciones web modernas. Aprendimos que el backend es la parte del sistema que se ejecuta en el servidor y se encarga de gestionar la lógica de negocio, la base de datos y la comunicación con el frontend.</p>
+                <p>En esta semana, nos adentramos en el <strong>Desarrollo Backend</strong>, comprendiendo su papel esencial dentro de la arquitectura cliente-servidor. Aprendimos que el backend es la parte del sistema que se ejecuta en el servidor y gestiona la lógica de negocio, las bases de datos y la comunicación con el frontend.</p>
 
-                <p>Estudiamos diferentes tipos de arquitecturas web:</p>
+                <p>Se estudiaron diferentes tipos de arquitecturas web:</p>
                 <ul>
-                    <li><strong>MPA (Multi Page Application):</strong> Aplicaciones tradicionales con múltiples páginas HTML. Cada navegación implica una recarga completa.</li>
-                    <li><strong>SPA (Single Page Application):</strong> Una única página que se actualiza dinámicamente con JavaScript, ofreciendo una experiencia más fluida.</li>
-                    <li><strong>Arquitecturas Híbridas (MPA/SPA):</strong> Combinan lo mejor de ambos mundos, como en frameworks como <strong>Next.js</strong>.</li>
-                    <li><strong>Arquitectura Hexagonal:</strong> Separa la lógica central de la aplicación de los servicios externos mediante <em>puertos y adaptadores</em>, mejorando mantenibilidad y pruebas.</li>
+                    <li><strong>Arquitectura C/S Clásica – Múltiples Páginas (MPA):</strong> Aplicaciones tradicionales donde cada página es un archivo HTML independiente y la navegación implica recargar completamente la página.</li>
+                    <li><strong>Arquitectura C/S Multicapa – Múltiples Páginas:</strong> Implementa capas (como el modelo MVC) para separar responsabilidades (datos, lógica, presentación), mejorando el mantenimiento.</li>
+                    <li><strong>Arquitectura SPA (Single Page Application):</strong> Una sola página que se actualiza dinámicamente con JavaScript, ofreciendo una experiencia más fluida sin recargas completas.</li>
+                    <li><strong>Arquitecturas Híbridas (MPA/SPA):</strong> Combinan lo mejor de ambos mundos, como en frameworks modernos como <strong>Next.js</strong>.</li>
+                    <li><strong>Arquitectura Hexagonal:</strong> Separa la lógica central de la aplicación de servicios externos (BD, APIs) mediante puertos y adaptadores, facilitando pruebas y cambios tecnológicos.</li>
                 </ul>
 
                 <p>También exploramos conceptos clave del entorno backend:</p>
                 <ul>
-                    <li><strong>Servidores Web:</strong> Como Apache, Nginx, IIS y <strong>Apache Tomcat</strong> (especializado en aplicaciones Java).</li>
+                    <li><strong>Servidores Web:</strong> Como Apache, Nginx, IIS y <strong>Apache Tomcat</strong> (especializado en aplicaciones Java con JSP y Servlets).</li>
                     <li><strong>Hosting y Cloud Computing:</strong> Diferentes tipos de hosting (compartido, VPS, dedicado, en la nube) y cómo el cloud computing permite escalabilidad bajo demanda.</li>
                     <li><strong>Configuración de servidores:</strong> Parámetros como <code>DocumentRoot</code>, <code>Listen</code>, <code>ServerName</code>, <code>DirectoryIndex</code> y seguridad con SSL/TLS.</li>
                     <li><strong>Stacks Backend:</strong> Tecnologías como LAMP, MEAN, MERN, y herramientas como <strong>Maven</strong> para gestión de proyectos Java.</li>
+                    <li><strong>Maven:</strong> Su ciclo de vida (<code>compile</code>, <code>test</code>, <code>package</code>, <code>install</code>, <code>deploy</code>) y el archivo <code>pom.xml</code> como centro de configuración del proyecto.</li>
                 </ul>
 
                 <h3>Tipos de Arquitecturas Web - Comparativa</h3>
@@ -95,22 +97,25 @@ temp/      → Archivos temporales
                     <li><strong>deploy:</strong> Despliega el proyecto en un servidor remoto</li>
                 </ul>
                 <p><strong>Ejemplo de comando:</strong></p>
-                <pre><code>mvn clean install tomcat7:deploy</code></pre>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">mvn clean install tomcat7:deploy</pre>
 
                 <h3>Fragmento de server.xml (Apache Tomcat)</h3>
-                    <pre style="background: #2d2d2d; padding: 15px; border-radius: 8px; overflow-x: auto; color: #f8f8f8;">
-                      <code style="color: #f8f8f8; background: none; font-family: monospace;">
-                    <Server port="8005" shutdown="SHUTDOWN">
-                      <Service name="Catalina">
-                        <Connector port="8080" protocol="HTTP/1.1" />
-                        <Engine name="Catalina" defaultHost="localhost">
-                              <Host name="localhost" appBase="webapps" />
-                        </Engine>
-                      </Service>
-                </Server>
-                  </code>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+<Server port="8005" shutdown="SHUTDOWN">
+  <Service name="Catalina">
+    <Connector port="8080" protocol="HTTP/1.1" 
+               connectionTimeout="20000" 
+               redirectPort="8443" />
+    <Engine name="Catalina" defaultHost="localhost">
+      <Host name="localhost" appBase="webapps"
+            unpackWARs="true" autoDeploy="true">
+        <Context path="" docBase="mi-aplicacion" />
+      </Host>
+    </Engine>
+  </Service>
+</Server>
                 </pre>
-                <p><em>Este archivo define cómo Tomcat maneja las solicitudes HTTP en el puerto 8080.</em></p>
+                <p><em>Este archivo define cómo Tomcat maneja las solicitudes HTTP en el puerto 8080 y cómo se despliegan las aplicaciones web.</em></p>
 
                 <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 20px 0;">
                     <h4>¿Qué se requiere para Desarrollar Backend?</h4>
