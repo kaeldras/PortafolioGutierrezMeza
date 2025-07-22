@@ -98,19 +98,19 @@ temp/      → Archivos temporales
                 <pre><code>mvn clean install tomcat7:deploy</code></pre>
 
                 <h3>Fragmento de server.xml (Apache Tomcat)</h3>
-<pre style="background: #2d2d2d; padding: 15px; border-radius: 8px; overflow-x: auto; color: #f8f8f8;">
-  <code style="color: #f8f8f8; background: none; font-family: monospace;">
-<Server port="8005" shutdown="SHUTDOWN">
-  <Service name="Catalina">
-    <Connector port="8080" protocol="HTTP/1.1" />
-    <Engine name="Catalina" defaultHost="localhost">
-      <Host name="localhost" appBase="webapps" />
-    </Engine>
-  </Service>
-</Server>
-  </code>
-</pre>
-<p><em>Este archivo define cómo Tomcat maneja las solicitudes HTTP en el puerto 8080.</em></p>
+                    <pre style="background: #2d2d2d; padding: 15px; border-radius: 8px; overflow-x: auto; color: #f8f8f8;">
+                      <code style="color: #f8f8f8; background: none; font-family: monospace;">
+                    <Server port="8005" shutdown="SHUTDOWN">
+                      <Service name="Catalina">
+                        <Connector port="8080" protocol="HTTP/1.1" />
+                        <Engine name="Catalina" defaultHost="localhost">
+                              <Host name="localhost" appBase="webapps" />
+                        </Engine>
+                      </Service>
+                </Server>
+                  </code>
+                </pre>
+                <p><em>Este archivo define cómo Tomcat maneja las solicitudes HTTP en el puerto 8080.</em></p>
 
                 <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 20px 0;">
                     <h4>¿Qué se requiere para Desarrollar Backend?</h4>
