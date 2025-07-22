@@ -16,61 +16,86 @@
     <main class="main-content-container">
         <div class="info-section">
             <div class="welcome-box">
-                <h2>Semana 16: Proyecto Final – Sistema Inteligente con Python</h2>
+                <h2>Semana 16: Proyecto Final – Un nuevo enfoque para gestionar datos faltantes</h2>
                 
+                <h3>Nombre del proyecto</h3>
+                <p><strong>Título:</strong> Un nuevo enfoque para gestionar datos faltantes para mejorar el sistema de detección de intrusiones en la red</p>
+                <p><strong>Base científica:</strong> Artículo publicado en <em>Cybersecurity and Applications</em> (2025), que propone el modelo <strong>DMDI (Deep Learning-Based Missing Data Imputation)</strong> para corregir datos faltantes en sistemas de detección de intrusiones (IDS).</p>
+
                 <h3>Descripción del proyecto</h3>
-                <p>En esta semana, presentamos nuestro <strong>proyecto final</strong> titulado <strong>"Gradient Minimal Portfolio" (GMP)</strong>, un <strong>sistema inteligente integral</strong> desarrollado en Python que combina <strong>inteligencia artificial, backend, base de datos y frontend</strong> para ofrecer una solución completa de análisis de datos con imputación de valores faltantes.</p>
+                <p>En esta semana, presentamos nuestro <strong>proyecto final</strong>, una implementación práctica del modelo <strong>DMDI</strong> descrito en el artículo científico. El objetivo fue desarrollar una <strong>aplicación web inteligente</strong> que simule, corrija y analice datos faltantes en conjuntos de datos de ciberseguridad, demostrando cómo la imputación precisa mejora el rendimiento de los modelos de detección de intrusiones.</p>
 
-                <p>El proyecto fue desarrollado siguiendo las instrucciones detalladas en la <strong>evaluación final</strong> del curso, que exigía el uso de:</p>
+                <p>El proyecto fue desarrollado siguiendo las instrucciones de la <strong>evaluación final</strong>, integrando:</p>
                 <ul>
-                    <li><strong>Backend:</strong> Flask + MySQL + IA (Python)</li>
-                    <li><strong>Frontend:</strong> HTML, CSS, JavaScript y React</li>
-                    <li><strong>Arquitectura:</strong> Aplicación web inteligente con integración de modelos de IA</li>
+                    <li><strong>Backend:</strong> Flask (Python), con lógica de negocio y gestión de modelos.</li>
+                    <li><strong>Base de datos:</strong> MySQL, para almacenar usuarios, sesiones y resultados.</li>
+                    <li><strong>Inteligencia artificial:</strong> Autoencoder (PyTorch) para reconstrucción de datos y Random Forest (scikit-learn) para clasificación.</li>
+                    <li><strong>Frontend:</strong> React, HTML, CSS y JavaScript, con una interfaz moderna y responsive.</li>
                 </ul>
-
-                <p>Nuestro sistema está inspirado en el artículo científico estudiado en la Semana 11, sobre el modelo <strong>DMDI (Deep Learning-Based Missing Data Imputation)</strong>, que corrige datos faltantes en sistemas de detección de intrusiones. Adaptamos este enfoque a un contexto más amplio, creando una plataforma que puede aplicarse en salud, finanzas o ciberseguridad.</p>
 
                 <h3>Objetivos del proyecto</h3>
                 <ul>
-                    <li>Desarrollar una aplicación web funcional con <strong>Flask</strong> como backend y <strong>React</strong> como frontend.</li>
-                    <li>Integrar un <strong>modelo de inteligencia artificial</strong> basado en <strong>autoencoders</strong> y <strong>Random Forest</strong> para reconstruir y clasificar datos.</li>
-                    <li>Utilizar <strong>MySQL</strong> para almacenar usuarios, resultados y registros del sistema.</li>
-                    <li>Implementar una <strong>API REST</strong> para la comunicación entre frontend y backend.</li>
-                    <li>Demostrar la capacidad de integrar múltiples tecnologías en un solo sistema coherente.</li>
+                    <li>Implementar el modelo <strong>DMDI</strong> en un entorno web funcional.</li>
+                    <li>Simular datos faltantes usando el algoritmo <strong>RMV (Random Missing Value)</strong>.</li>
+                    <li>Reconstruir datos faltantes con un <strong>autoencoder</strong> entrenado en datos normales.</li>
+                    <li>Clasificar los datos reconstruidos con un modelo <strong>Random Forest</strong>.</li>
+                    <li>Evaluar la precisión de la reconstrucción y mostrar los resultados al usuario.</li>
+                    <li>Desarrollar una API REST para la comunicación entre frontend y backend.</li>
                 </ul>
 
                 <h3>Arquitectura del sistema</h3>
-                <p>El sistema sigue una arquitectura modular en capas:</p>
+                <p>El sistema sigue una arquitectura modular y escalable:</p>
                 <ul>
-                    <li><strong>Frontend (React):</strong> Interfaz de usuario moderna, con componentes reactivos, rutas y estilos.</li>
-                    <li><strong>Backend (Flask):</strong> Servidor que gestiona las solicitudes, la lógica de negocio y la conexión con la IA.</li>
-                    <li><strong>Modelos de IA:</strong> Autoencoder (PyTorch) para reconstrucción de datos y Random Forest (scikit-learn) para clasificación.</li>
-                    <li><strong>Base de datos (MySQL):</strong> Almacena usuarios, sesiones, resultados y análisis de sentimientos.</li>
+                    <li><strong>Frontend (React):</strong> Interfaz de usuario con componentes para ejecutar demostraciones, ver resultados y generar texto.</li>
+                    <li><strong>Backend (Flask):</strong> Servidor que gestiona autenticación, procesamiento de datos e inferencia de modelos.</li>
+                    <li><strong>Modelos de IA:</strong> Autoencoder (PyTorch) para imputación; Random Forest (scikit-learn) para clasificación.</li>
+                    <li><strong>Base de datos (MySQL):</strong> Almacena usuarios, resultados de análisis y configuraciones.</li>
+                    <li><strong>Autenticación:</strong> JWT para sesiones seguras.</li>
                 </ul>
 
                 <h3>Componentes técnicos detallados</h3>
 
                 <h4>1. Backend con Flask</h4>
-                <p>El backend, desarrollado en Python con Flask, expone una API REST que permite al frontend interactuar con el sistema.</p>
+                <p>El backend expone una API REST para todas las funcionalidades del sistema.</p>
                 <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
 from flask import Flask, request, jsonify
+from flask_jwt_extended import JWTManager, create_access_token
 import joblib
 import numpy as np
 
 app = Flask(__name__)
+app.config['JWT_SECRET_KEY'] = 'clave-secreta'
+jwt = JWTManager(app)
 
-# Cargar modelos entrenados
+# Cargar modelos
 autoencoder = joblib.load('model/autoencoder.pkl')
 classifier = joblib.load('model/random_forest.pkl')
 
-@app.route('/predict', methods=['POST'])
-def predict():
-    data = request.json['data']
-    # Reconstruir datos faltantes
-    reconstructed = autoencoder.predict(data)
-    # Clasificar
-    prediction = classifier.predict(reconstructed)
-    return jsonify({'prediction': prediction.tolist()})
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.json['username']
+    password = request.json['password']
+    # Validación de credenciales (simplificada)
+    access_token = create_access_token(identity=username)
+    return jsonify(access_token=access_token)
+
+@app.route('/reconstruir', methods=['POST'])
+def reconstruir():
+    datos = np.array(request.json['data'])
+    # Simular datos faltantes (RMV)
+    datos_faltantes = np.copy(datos)
+    mask = np.random.rand(*datos.shape) < 0.3  # 30% faltante
+    datos_faltantes[mask] = np.nan
+    
+    # Reconstruir con autoencoder
+    datos_reconstruidos = autoencoder.predict(datos_faltantes)
+    precision = np.mean(np.abs(datos - datos_reconstruidos))  # Métrica simple
+    
+    return jsonify({
+        'datos_originales': datos.tolist(),
+        'datos_reconstruidos': datos_reconstruidos.tolist(),
+        'precision': 1 - precision
+    })
 
 if __name__ == '__main__':
     app.run(debug=True)
@@ -79,74 +104,56 @@ if __name__ == '__main__':
                 <h4>2. Modelo de Inteligencia Artificial</h4>
                 <p>El sistema utiliza dos modelos clave:</p>
                 <ul>
-                    <li><strong>Autoencoder:</strong> Red neuronal entrenada con PyTorch para reconstruir datos faltantes. Se entrena con datos normales y aprende a representar patrones.</li>
-                    <li><strong>Random Forest:</strong> Clasificador que predice categorías a partir de los datos reconstruidos.</li>
+                    <li><strong>Autoencoder:</strong> Red neuronal de 3 capas que aprende a reconstruir datos completos. Se entrena con datos normales y luego se usa para imputar valores faltantes.</li>
+                    <li><strong>Random Forest:</strong> Clasificador que predice si un registro es normal o malicioso, basado en los datos reconstruidos.</li>
                 </ul>
-                <p>El entrenamiento se realizó en tres fases:</p>
+                <p>El entrenamiento se realizó en 3 fases:</p>
                 <ol>
-                    <li>Carga y normalización de datos con <code>StandardScaler</code>.</li>
+                    <li>Carga y normalización de datos (NSL-KDD o UNSW-NB15).</li>
                     <li>Entrenamiento del autoencoder durante 20 épocas.</li>
                     <li>Entrenamiento del Random Forest y guardado de ambos modelos.</li>
                 </ol>
 
                 <h4>3. Base de Datos (MySQL)</h4>
-                <p>Se creó una base de datos <code>gmp_db</code> con tablas para usuarios y resultados:</p>
+                <p>Se creó la base de datos <code>ids_db</code> con tablas para usuarios y resultados:</p>
                 <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
-CREATE DATABASE gmp_db;
-USE gmp_db;
+CREATE DATABASE ids_db;
+USE ids_db;
 
 CREATE TABLE usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(100),
     email VARCHAR(100) UNIQUE,
-    password VARCHAR(255)
+    password_hash VARCHAR(255)
 );
 
-CREATE TABLE resultados (
+CREATE TABLE analisis (
     id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT,
+    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     datos_originales TEXT,
     datos_reconstruidos TEXT,
-    prediccion VARCHAR(50),
-    fecha TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    precision FLOAT,
     FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
 );
                 </pre>
 
                 <h4>4. Frontend con React</h4>
-                <p>La interfaz fue desarrollada con React, utilizando componentes, rutas y estilos modernos. Permite al usuario:</p>
+                <p>La interfaz permite al usuario:</p>
                 <ul>
-                    <li>Registrarse e iniciar sesión.</li>
-                    <li>Cargar un archivo CSV con datos.</li>
-                    <li>Visualizar datos originales y reconstruidos.</li>
-                    <li>Ver el resultado de la clasificación.</li>
+                    <li>Iniciar sesión con autenticación JWT.</li>
+                    <li>Hacer clic en "Ejecutar Demostración" para iniciar el proceso.</li>
+                    <li>Ver los datos originales, faltantes y reconstruidos.</li>
+                    <li>Visualizar la precisión de la reconstrucción (verde >90%, amarillo 70-89%, rojo <70%).</li>
+                    <li>Generar texto con una lógica de IA simple (TextBlob).</li>
                 </ul>
-                <p>La comunicación con el backend se realiza mediante <code>fetch</code> a la API Flask.</p>
-
-                <h4>5. Análisis de Sentimientos (TextBlob)</h4>
-                <p>Como funcionalidad adicional, implementamos un análisis de sentimientos usando <strong>TextBlob</strong>:</p>
-                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
-from textblob import TextBlob
-
-def analizar_sentimiento(texto):
-    blob = TextBlob(texto)
-    polaridad = blob.sentiment.polarity
-    if polaridad > 0:
-        return "Positivo"
-    elif polaridad < 0:
-        return "Negativo"
-    else:
-        return "Neutro"
-
-print(analizar_sentimiento("Me encanta este sistema inteligente"))
-                </pre>
 
                 <h3>Cumplimiento con la Evaluación Final</h3>
-                <p>El proyecto cumple con todos los requisitos de la <strong>Evaluación Final</strong> (EvalFinal.pdf):</p>
+                <p>El proyecto cumple con todos los criterios de la <strong>Evaluación Final</strong> (EvalFinal.pdf):</p>
                 <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
                     <thead>
                         <tr style="background-color: #2c3e50; color: white;">
-                            <th style="padding: 10px; border: 1px solid #ddd;">Requisito</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Criterio</th>
                             <th style="padding: 10px; border: 1px solid #ddd;">Cumplido</th>
                             <th style="padding: 10px; border: 1px solid #ddd;">Detalle</th>
                         </tr>
@@ -158,19 +165,19 @@ print(analizar_sentimiento("Me encanta este sistema inteligente"))
                             <td style="padding: 10px; border: 1px solid #ddd;">Flask gestiona API, MySQL almacena datos, IA reconstruye y clasifica.</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Frontend: React, HTML, CSS, JS</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Frontend: React + HTML/CSS/JS</td>
                             <td style="padding: 10px; border: 1px solid #ddd; color: green;">✅ Sí</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Interfaz moderna con React y estilos CSS.</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Interfaz moderna con React, Bootstrap 5 y componentes reactivos.</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Aplicación web inteligente</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Autenticación y seguridad</td>
                             <td style="padding: 10px; border: 1px solid #ddd; color: green;">✅ Sí</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Integra IA para imputación y clasificación de datos.</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">JWT para manejo seguro de sesiones y almacenamiento local del token.</td>
                         </tr>
                         <tr>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Presentación del proyecto</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Integración del modelo de IA</td>
                             <td style="padding: 10px; border: 1px solid #ddd; color: green;">✅ Sí</td>
-                            <td style="padding: 10px; border: 1px solid #ddd;">Se presentó con diapositivas profesionales y demostración en vivo.</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Autoencoder y Random Forest integrados en el backend y usados en tiempo real.</td>
                         </tr>
                     </tbody>
                 </table>
@@ -178,18 +185,10 @@ print(analizar_sentimiento("Me encanta este sistema inteligente"))
                 <h3>Valor educativo del proyecto</h3>
                 <p>Este proyecto nos permitió integrar todo lo aprendido durante el curso, desde el desarrollo backend hasta la inteligencia artificial. Aprendimos:</p>
                 <ul>
-                    <li><strong>IA:</strong> Autoencoders, Random Forest, TextBlob.</li>
-                    <li><strong>Web:</strong> React, componentes, estilos, rutas.</li>
-                    <li><strong>Backend:</strong> Flask, APIs REST, lógica de negocio.</li>
-                    <li><strong>Base de datos:</strong> MySQL, relaciones, autenticación.</li>
+                    <li><strong>IA:</strong> Autoencoders, Random Forest, TextBlob, imputación de datos.</li>
+                    <li><strong>Web:</strong> React, componentes, estilos, rutas, JWT.</li>
+                    <li><strong>Backend:</strong> Flask, APIs REST, lógica de negocio, MySQL.</li>
                     <li><strong>Integración:</strong> Comunicación entre frontend, backend, IA y BD.</li>
-                </ul>
-
-                <h3>Desafíos y soluciones</h3>
-                <ul>
-                    <li><strong>Integración React-Flask:</strong> Solucionado con CORS y API REST bien definida.</li>
-                    <li><strong>Entrenamiento del modelo:</strong> Optimizado con normalización y validación cruzada.</li>
-                    <li><strong>Autenticación de usuarios:</strong> Implementada con sesiones y hashing de contraseñas.</li>
                 </ul>
 
                 <h3>Reflexión: ¿Qué aprendí? y ¿Cómo aprendí?</h3>
