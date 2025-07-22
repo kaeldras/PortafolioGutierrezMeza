@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio - Semana 9</title>
+    <title>Portafolio - Semana 9: Desarrollo Backend</title>
     <link rel="stylesheet" href="../style.css"> 
 </head>
 <body>
@@ -19,25 +19,107 @@
                 <h2>Semana 9: Desarrollo Backend – Arquitectura y Principios</h2>
                 
                 <h3>Descripción de temas aprendidos</h3>
-                <p>En esta semana, profundizamos en el mundo del <strong>Desarrollo Backend</strong>, comprendiendo su papel fundamental dentro de la arquitectura cliente-servidor que sustenta las aplicaciones web modernas. Aprendimos que el backend es la parte del sistema que se ejecuta en el servidor y se encarga de gestionar la lógica de negocio, la base de datos y la comunicación con el frontend.</p>
+                <p>En esta semana, profundizamos en el <strong>Desarrollo Backend</strong>, comprendiendo su papel fundamental dentro de la arquitectura cliente-servidor que sustenta las aplicaciones web modernas. Aprendimos que el backend es la parte del sistema que se ejecuta en el servidor y se encarga de gestionar la lógica de negocio, la base de datos y la comunicación con el frontend.</p>
 
-                <p>Se estudiaron diferentes tipos de arquitecturas web:</p>
+                <p>Estudiamos diferentes tipos de arquitecturas web:</p>
                 <ul>
-                    <li><strong>Arquitectura C/S Clásica – Múltiples Páginas (MPA):</strong> Aplicaciones web tradicionales donde cada página es un archivo HTML independiente y la navegación implica recargar la página.</li>
-                    <li><strong>Arquitectura C/S Multicapa – Múltiples Páginas:</strong> Uso de capas (como el modelo MVC) para separar responsabilidades (datos, lógica, presentación), mejorando el mantenimiento y escalabilidad.</li>
-                    <li><strong>Arquitectura SPA (Single Page Application):</strong> Aplicaciones de página única que cargan una sola vez el HTML, CSS y JS, y luego actualizan dinámicamente el contenido mediante JavaScript, ofreciendo una experiencia más fluida.</li>
-                    <li><strong>Arquitecturas Híbridas (MPA/SPA):</strong> Combinan lo mejor de ambos mundos, como en frameworks modernos como Next.js.</li>
-                    <li><strong>Arquitectura Hexagonal:</strong> Propone separar la lógica central de la aplicación de los detalles externos (bases de datos, interfaces, APIs) mediante puertos y adaptadores, facilitando pruebas y cambios tecnológicos.</li>
+                    <li><strong>MPA (Multi Page Application):</strong> Aplicaciones tradicionales con múltiples páginas HTML. Cada navegación implica una recarga completa.</li>
+                    <li><strong>SPA (Single Page Application):</strong> Una única página que se actualiza dinámicamente con JavaScript, ofreciendo una experiencia más fluida.</li>
+                    <li><strong>Arquitecturas Híbridas (MPA/SPA):</strong> Combinan lo mejor de ambos mundos, como en frameworks como <strong>Next.js</strong>.</li>
+                    <li><strong>Arquitectura Hexagonal:</strong> Separa la lógica central de la aplicación de los servicios externos mediante <em>puertos y adaptadores</em>, mejorando mantenibilidad y pruebas.</li>
                 </ul>
 
                 <p>También exploramos conceptos clave del entorno backend:</p>
                 <ul>
-                    <li><strong>Servidores Web:</strong> Como Apache, Nginx, IIS y Tomcat, que reciben solicitudes HTTP y sirven contenido.</li>
+                    <li><strong>Servidores Web:</strong> Como Apache, Nginx, IIS y <strong>Apache Tomcat</strong> (especializado en aplicaciones Java).</li>
                     <li><strong>Hosting y Cloud Computing:</strong> Diferentes tipos de hosting (compartido, VPS, dedicado, en la nube) y cómo el cloud computing permite escalabilidad bajo demanda.</li>
                     <li><strong>Configuración de servidores:</strong> Parámetros como <code>DocumentRoot</code>, <code>Listen</code>, <code>ServerName</code>, <code>DirectoryIndex</code> y seguridad con SSL/TLS.</li>
-                    <li><strong>Stacks Backend:</strong> Tecnologías como LAMP, MEAN, MERN, y herramientas como Maven y Gradle para gestión de proyectos Java.</li>
-                    <li><strong>Maven:</strong> Su ciclo de vida (<code>compile</code>, <code>test</code>, <code>package</code>, <code>install</code>, <code>deploy</code>) y el archivo <code>pom.xml</code> como centro de configuración del proyecto.</li>
+                    <li><strong>Stacks Backend:</strong> Tecnologías como LAMP, MEAN, MERN, y herramientas como <strong>Maven</strong> para gestión de proyectos Java.</li>
                 </ul>
+
+                <h3>Tipos de Arquitecturas Web - Comparativa</h3>
+                <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                    <thead>
+                        <tr style="background-color: #2c3e50; color: white;">
+                            <th style="padding: 10px; border: 1px solid #ddd;">Arquitectura</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Descripción</th>
+                            <th style="padding: 10px; border: 1px solid #ddd;">Ventajas</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>MPA</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Cada página es un archivo HTML. Recarga completa al navegar.</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">SEO fácil, simple de implementar.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>SPA</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Una sola página HTML. Navegación dinámica con JavaScript.</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Experiencia fluida, ideal para apps web.</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid #ddd;"><strong>Hexagonal</strong></td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Separación clara entre lógica central y servicios externos.</td>
+                            <td style="padding: 10px; border: 1px solid #ddd;">Alta mantenibilidad, fácil de probar.</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h3>Flujo de una Solicitud HTTP en el Backend</h3>
+                <ol>
+                    <li>🔍 El navegador envía una solicitud HTTP al servidor (ej: <code>GET /inicio</code>).</li>
+                    <li>⚙️ El servidor (Apache/Tomcat) recibe la solicitud.</li>
+                    <li>📝 Si es un archivo dinámico (como <code>.jsp</code>), el motor del backend lo procesa.</li>
+                    <li>🗄️ Se consulta la base de datos si es necesario.</li>
+                    <li>📤 El servidor genera una respuesta en HTML, JSON o XML.</li>
+                    <li>🌐 Envía la respuesta al cliente para que el navegador la muestre.</li>
+                </ol>
+
+                <h3>Estructura de Directorios de Apache Tomcat</h3>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+bin/       → Scripts para iniciar y detener el servidor (startup.bat, shutdown.bat)
+conf/      → Archivos de configuración (server.xml, web.xml)
+lib/       → Librerías JAR compartidas por todas las aplicaciones
+logs/      → Archivos de registro (logs) del servidor
+webapps/   → Carpetas de aplicaciones web (aquí se despliegan tus proyectos)
+work/      → Código JSP compilado temporalmente
+temp/      → Archivos temporales
+                </pre>
+
+                <h3>Ciclo de Vida de Maven y Comandos Clave</h3>
+                <ul>
+                    <li><strong>compile:</strong> Compila el código fuente a <code>.class</code></li>
+                    <li><strong>test:</strong> Ejecuta pruebas automatizadas (JUnit)</li>
+                    <li><strong>package:</strong> Empaqueta el proyecto en un archivo <code>.war</code> o <code>.jar</code></li>
+                    <li><strong>install:</strong> Guarda el paquete en el repositorio local</li>
+                    <li><strong>deploy:</strong> Despliega el proyecto en un servidor remoto</li>
+                </ul>
+                <p><strong>Ejemplo de comando:</strong></p>
+                <pre><code>mvn clean install tomcat7:deploy</code></pre>
+
+                <h3>Fragmento de server.xml (Apache Tomcat)</h3>
+                <pre style="background: #2d2d2d; color: #f8f8f8; padding: 15px; border-radius: 8px; overflow-x: auto;">
+<Server port="8005" shutdown="SHUTDOWN">
+  <Service name="Catalina">
+    <Connector port="8080" protocol="HTTP/1.1" />
+    <Engine name="Catalina" defaultHost="localhost">
+      <Host name="localhost" appBase="webapps" />
+    </Engine>
+  </Service>
+</Server>
+                </pre>
+                <p><em>Este archivo define cómo Tomcat maneja las solicitudes HTTP en el puerto 8080.</em></p>
+
+                <div style="background: #e8f4f8; padding: 15px; border-radius: 8px; margin: 20px 0;">
+                    <h4>¿Qué se requiere para Desarrollar Backend?</h4>
+                    <ul>
+                        <li>🖥️ Sistema Operativo (Windows, Linux, macOS)</li>
+                        <li>🌐 Servidor Web (Apache, Tomcat, Nginx)</li>
+                        <li>🧩 Lenguaje Backend (Java, PHP, Python, Node.js)</li>
+                        <li>🗄️ Gestor de Base de Datos (MySQL, PostgreSQL, MongoDB)</li>
+                        <li>🔧 Herramientas de Desarrollo (IntelliJ, Eclipse, VS Code)</li>
+                    </ul>
+                </div>
 
                 <h3>Ejercicios de laboratorio – Resultados</h3>
                 <p>Como parte del laboratorio, realizamos los siguientes ejercicios prácticos:</p>
