@@ -1,1 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Semana 15: Sistema Inteligente con Python</title>
+    <link rel="stylesheet" href="../style.css"> 
+</head>
+<body>
 
+    <header class="site-header">
+        <h1>MI PORTAFOLIO ELECTRÓNICO</h1>
+        <p>Desarrollo de Aplicaciones Web</p>
+    </header>
+
+    <main class="main-content-container">
+        <div class="info-section">
+            <div class="welcome-box">
+                <h2>Semana 15: Sistema Inteligente con Python</h2>
+                
+                <h3>Descripción de temas aprendidos</h3>
+                <p>En esta semana, desarrollamos un <strong>sistema inteligente</strong> utilizando <strong>Python</strong>, aplicando conceptos de <strong>inteligencia artificial</strong>, <strong>toma de decisiones</strong> y <strong>lógica difusa</strong>. Aprendimos que un <strong>sistema inteligente</strong> es una entidad computacional capaz de percibir su entorno, procesar información, razonar y tomar decisiones autónomas para alcanzar objetivos definidos.</p>
+
+                <p>Estudiamos ejemplos reales de sistemas inteligentes:</p>
+                <ul>
+                    <li><strong>Salud:</strong> Watson Health de IBM, diagnóstico por imagen con deep learning.</li>
+                    <li><strong>Automoción:</strong> Vehículos autónomos (Tesla), sistemas ADAS.</li>
+                    <li><strong>Industria 4.0:</strong> Robots colaborativos (cobots), mantenimiento predictivo.</li>
+                    <li><strong>Retail:</strong> Sistemas de recomendación (Netflix, Spotify).</li>
+                    <li><strong>Hogar inteligente:</strong> Asistentes virtuales (Alexa), termostatos inteligentes (Nest).</li>
+                </ul>
+
+                <p>Los componentes principales de un sistema inteligente son:</p>
+                <ul>
+                    <li><strong>Módulo de percepción:</strong> Sensores y fuentes de datos.</li>
+                    <li><strong>Toma de decisiones:</strong> Algoritmos expertos que evalúan riesgos.</li>
+                    <li><strong>Subsistema de aprendizaje:</strong> Redes neuronales que mejoran con el tiempo.</li>
+                    <li><strong>Interacción y visualización:</strong> Interfaces de usuario y alertas.</li>
+                </ul>
+
+                <h3>Algoritmos de toma de decisiones</h3>
+                <p>Aprendimos que los sistemas inteligentes usan algoritmos para seleccionar acciones óptimas. Los principales tipos son:</p>
+                <ul>
+                    <li><strong>Sistemas basados en reglas (IF-THEN):</strong> Ideales en entornos controlados.</li>
+                    <li><strong>Redes Bayesianas:</strong> Manejan incertidumbre con probabilidad.</li>
+                    <li><strong>Lógica difusa:</strong> Trabaja con imprecisión usando variables lingüísticas.</li>
+                    <li><strong>Árboles de decisión:</strong> Clasifican y analizan alternativas.</li>
+                    <li><strong>Algoritmos heurísticos:</strong> Buscan soluciones eficientes en problemas complejos.</li>
+                </ul>
+
+                <h3>Ejercicio 1: Sistema de Diagnóstico Médico (IF-THEN)</h3>
+                <p>Desarrollamos un sistema experto simple que diagnostica condiciones médicas basado en síntomas ingresados por el usuario.</p>
+
+                <h4>Código completo: <code>main.py</code></h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def presentarse(self):
+        return f"Hola, soy {self.nombre} y tengo {self.edad} años."
+
+class Paciente(Persona):
+    def __init__(self, nombre, edad, sintomas):
+        super().__init__(nombre, edad)
+        self.sintomas = sintomas
+
+    def mostrar_sintomas(self):
+        return f"Síntomas: {', '.join(self.sintomas)}"
+
+def diagnosticar(sintomas):
+    if "fiebre" in sintomas and "tos" in sintomas and "dolor de garganta" in sintomas:
+        return "Diagnóstico: Posible gripe"
+    elif "dolor de cabeza" in sintomas and "mareos" in sintomas and "visión borrosa" in sintomas:
+        return "Diagnóstico: Posible migraña"
+    elif "tos" in sintomas and "dificultad para respirar" in sintomas:
+        return "Diagnóstico: Posible bronquitis"
+    else:
+        return "Diagnóstico: No se identificó una condición clara. Se recomienda consulta médica."
+
+# Ejemplo de uso
+if __name__ == "__main__":
+    sintomas_ingresados = ["fiebre", "tos", "dolor de garganta"]
+    paciente = Paciente("Lucía", 22, sintomas_ingresados)
+    
+    print(paciente.presentarse())
+    print(paciente.mostrar_sintomas())
+    resultado = diagnosticar(paciente.sintomas)
+    print(resultado)
+                </pre>
+
+                <h3>Ejercicio 2: Sistema de Control Difuso de Climatización</h3>
+                <p>Implementamos un sistema de control de aire acondicionado usando <strong>lógica difusa</strong>, que permite manejar condiciones imprecisas como "temperatura media" o "potencia alta".</p>
+
+                <h4>Instalación requerida</h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">pip install scikit-fuzzy</pre>
+
+                <h4>Código del sistema: <code>climatizador_fuzzy.py</code></h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+import numpy as np
+import skfuzzy as fuzz
+from skfuzzy import control as ctrl
+
+# 1. Variables de entrada y salida
+temperatura = ctrl.Antecedent(np.arange(15, 41, 1), 'temperatura')
+potencia = ctrl.Consequent(np.arange(0, 101, 1), 'potencia')
+
+# 2. Definición de conjuntos difusos
+temperatura['baja'] = fuzz.trimf(temperatura.universe, [15, 15, 25])
+temperatura['media'] = fuzz.trimf(temperatura.universe, [20, 27, 34])
+temperatura['alta'] = fuzz.trimf(temperatura.universe, [30, 40, 40])
+
+potencia['baja'] = fuzz.trimf(potencia.universe, [0, 0, 50])
+potencia['media'] = fuzz.trimf(potencia.universe, [30, 50, 70])
+potencia['alta'] = fuzz.trimf(potencia.universe, [60, 100, 100])
+
+# 3. Reglas
+regla1 = ctrl.Rule(temperatura['baja'], potencia['baja'])
+regla2 = ctrl.Rule(temperatura['media'], potencia['media'])
+regla3 = ctrl.Rule(temperatura['alta'], potencia['alta'])
+
+# 4. Sistema de control
+sistema_control = ctrl.ControlSystem([regla1, regla2, regla3])
+simulador = ctrl.ControlSystemSimulation(sistema_control)
+
+# 5. Entrada y simulación
+simulador.input['temperatura'] = 32  # Temperatura actual
+simulador.compute()
+
+print(f"Potencia sugerida del aire acondicionado: {simulador.output['potencia']:.2f}%")
+                </pre>
+
+                <h3>Ejercicio 3: Interfaz Web con Llama 3 (LLM)</h3>
+                <p>Integramos un modelo de lenguaje a gran escala (<strong>Llama 3</strong>) con una interfaz web usando <strong>Flask</strong> y <strong>Transformers</strong> de Hugging Face.</p>
+
+                <h4>Requisitos previos</h4>
+                <ul>
+                    <li>Python 3.9+</li>
+                    <li>Cuenta en Hugging Face con acceso a Llama 3</li>
+                    <li>GPU recomendada</li>
+                </ul>
+
+                <h4>Dependencias</h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">pip install flask transformers torch</pre>
+
+                <h4>Backend: <code>app.py</code></h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+from flask import Flask, request, jsonify, render_template
+from transformers import pipeline
+
+app = Flask(__name__)
+
+# Cargar el modelo Llama 3 (versión pequeña para pruebas)
+chatbot = pipeline("text-generation", model="meta-llama/Llama-3-8B-Instruct", trust_remote_code=True)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
+
+@app.route('/generate', methods=['POST'])
+def generate():
+    data = request.json
+    prompt = data.get('prompt', '')
+    response = chatbot(prompt, max_length=150, num_return_sequences=1)
+    return jsonify({'response': response[0]['generated_text']})
+
+if __name__ == '__main__':
+    app.run(debug=True)
+                </pre>
+
+                <h4>Frontend: <code>templates/index.html</code></h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Chat con Llama 3</title>
+</head>
+<body>
+  <h1>Interactúa con Llama 3</h1>
+  <input type="text" id="prompt" placeholder="Escribe tu mensaje...">
+  <button onclick="enviar()">Enviar</button>
+  <div id="response"></div>
+
+  <script>
+    async function enviar() {
+      const prompt = document.getElementById('prompt').value;
+      const responseBox = document.getElementById('response');
+      const res = await fetch("/generate", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({ prompt })
+      });
+      const data = await res.json();
+      responseBox.innerHTML = data.response;
+    }
+  </script>
+</body>
+</html>
+                </pre>
+
+                <h3>Reflexión: ¿Qué aprendí? y ¿Cómo aprendí?</h3>
+                <p>Esta semana fue la más desafiante y enriquecedora del curso. Aprendí que un sistema inteligente no es solo "inteligente" por usar IA, sino porque combina percepción, razonamiento y acción autónoma. Lo más fascinante fue ver cómo con estructuras simples como <code>if-elif-else</code> podemos emular un sistema experto básico, y cómo la lógica difusa permite manejar condiciones imprecisas de forma natural. Aprendí haciendo: cada error en la instalación de <code>scikit-fuzzy</code> o en la integración con Llama 3 fue una oportunidad para investigar, leer documentación y entender mejor cómo funcionan estos sistemas. Sentí una gran satisfacción al ver mi sistema de diagnóstico funcionando y al interactuar con un modelo de lenguaje local. Ahora entiendo mejor cómo se construyen sistemas inteligentes reales y cómo Python es una herramienta poderosa para desarrollarlos.</p>
+                
+                <a href="../index.html" class="week-button" style="margin-top: 30px; display: inline-block;">Volver al Inicio</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
