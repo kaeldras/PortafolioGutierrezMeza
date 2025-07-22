@@ -1,1 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Semana 10: Java Spring</title>
+    <link rel="stylesheet" href="../style.css"> 
+</head>
+<body>
 
+    <header class="site-header">
+        <h1>MI PORTAFOLIO ELECTRÓNICO</h1>
+        <p>Desarrollo de Aplicaciones Web</p>
+    </header>
+
+    <main class="main-content-container">
+        <div class="info-section">
+            <div class="welcome-box">
+                <h2>Semana 10: Desarrollo Web Backend – Java con Spring y JSP</h2>
+                
+                <h3>Descripción de temas aprendidos</h3>
+                <p>En esta semana, profundizamos en el desarrollo backend utilizando tecnologías clave del ecosistema Java: <strong>Jakarta Server Pages (JSP)</strong> y el <strong>Spring Framework</strong>. Aprendimos cómo construir aplicaciones web dinámicas del lado del servidor, combinando lógica de negocio con presentación.</p>
+
+                <p><strong>Jakarta Server Pages (JSP)</strong> es una tecnología que permite crear páginas web dinámicas mediante la inclusión de código Java en archivos HTML. JSP se ejecuta en un contenedor como <strong>Apache Tomcat</strong> y se traduce a Servlets para su ejecución.</p>
+
+                <p>Los elementos principales de JSP que estudiamos son:</p>
+                <ul>
+                    <li><strong>Scriptlets:</strong> Bloques de código Java dentro de <code><% ... %></code>.</li>
+                    <li><strong>Declaraciones:</strong> Definición de variables y métodos con <code><%! ... %></code>.</li>
+                    <li><strong>Expresiones:</strong> Salida de valores con <code><%= ... %></code>.</li>
+                    <li><strong>Directivas:</strong> Controlan el comportamiento de la página (ej: <code><%@ page ... %></code>).</li>
+                    <li><strong>Acciones:</strong> Elementos XML como <code><jsp:include></code>.</li>
+                </ul>
+
+                <p>También exploramos los <strong>9 objetos implícitos</strong> en JSP, como <code>request</code>, <code>response</code>, <code>session</code>, <code>out</code> y <code>application</code>, que facilitan la manipulación de datos y sesiones sin necesidad de instanciarlos.</p>
+
+                <p>Luego, ingresamos al mundo de <strong>Spring Framework</strong>, un poderoso framework para aplicaciones empresariales en Java. Aprendimos sobre:</p>
+                <ul>
+                    <li><strong>Inversión de Control (IoC):</strong> El contenedor de Spring gestiona el ciclo de vida de los objetos.</li>
+                    <li><strong>Inyección de Dependencia (DI):</strong> Las dependencias se inyectan automáticamente, no se crean manualmente.</li>
+                    <li><strong>Beans:</strong> Componentes gestionados por Spring, definidos en archivos XML o mediante anotaciones.</li>
+                    <li><strong>Spring Boot:</strong> Simplifica la configuración, integración y despliegue de aplicaciones Spring.</li>
+                </ul>
+
+                <h3>Ejercicios de laboratorio – Resultados</h3>
+                <p>Realizamos los siguientes ejercicios prácticos:</p>
+
+                <ul>
+                    <li><strong>Ejercicio 1: Crear una aplicación JSP que muestre la fecha actual.</strong>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ejemplo JSP</title>
+</head>
+<body>
+  <h1>¡Hola desde JSP!</h1>
+  <p>La fecha y hora actual es: <%= new java.util.Date() %></p>
+</body>
+</html>
+                      </pre>
+                    </li>
+
+                    <li><strong>Ejercicio 2: Aplicación JSP con formulario (GET/POST) que calcula el factorial.</strong>
+                      <p>El formulario envía un número, y el JSP calcula su factorial. Además, se usa el objeto <code>session</code> para contar cuántas veces se ha ejecutado la aplicación en esa sesión.</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+String numeroGet = request.getParameter("numero");
+if (numeroGet != null) {
+  int numero = 0;
+  double factorial = 1;
+  boolean error = false;
+  try {
+    numero = Integer.valueOf(numeroGet);
+    if (numero < 1) error = true;
+    else {
+      for (int i = numero; i > 1; i--) {
+        factorial *= i;
+      }
+    }
+  } catch (NumberFormatException e) { error = true; }
+  if (error) {
+    out.println("<p>Debe indicar un número entero mayor que 0</p>");
+  } else {
+    out.println("<p>Resultado: " + numero + "! = " + factorial + "</p>");
+  }
+}
+// Contador de visitas
+Integer contador = (Integer) session.getAttribute("contadorVisitas");
+if (contador == null) contador = 0;
+out.println("<p>Ejecuciones en esta sesión: " + ++contador + "</p>");
+session.setAttribute("contadorVisitas", contador);
+                      </pre>
+                    </li>
+
+                    <li><strong>Ejercicio 3: Creación de una API REST con Spring Boot.</strong>
+                      <p>Siguiendo la guía, creamos un proyecto en <a href="https://start.spring.io/" target="_blank">start.spring.io</a> con las dependencias necesarias. Luego, implementamos:</p>
+                      <ul>
+                        <li>Modelo <code>Estudiante</code> con JPA y anotaciones (<code>@Entity</code>, <code>@Id</code>, etc.).</li>
+                        <li>Repositorio <code>EstudianteRepository</code> que extiende <code>JpaRepository</code>.</li>
+                        <li>Controlador <code>EstudianteController</code> con anotaciones <code>@RestController</code> y <code>@RequestMapping</code>.</li>
+                        <li>Métodos para <strong>CRUD completo</strong> (Crear, Leer, Actualizar, Eliminar).</li>
+                      </ul>
+                      <p>Finalmente, probamos la API usando <strong>Postman</strong>, verificando que todas las operaciones funcionaran correctamente.</p>
+                    </li>
+                </ul>
+
+                <h3>Arquitectura MVC en Spring</h3>
+                <p>Aprendimos que Spring sigue el patrón <strong>MVC (Modelo-Vista-Controlador)</strong>:</p>
+                <ul>
+                    <li><strong>Modelo:</strong> Representa los datos (ej: clase <code>Estudiante</code>).</li>
+                    <li><strong>Vista:</strong> La interfaz del usuario (en este caso, JSON para APIs REST).</li>
+                    <li><strong>Controlador:</strong> Gestiona las solicitudes HTTP y coordina el modelo y la vista.</li>
+                </ul>
+                <p>Este patrón permite una clara separación de responsabilidades, facilitando el mantenimiento y escalabilidad del código.</p>
+
+                <h3>Reflexión: ¿Qué aprendí? y ¿Cómo aprendí?</h3>
+                <p>Esta semana fue un gran salto en mi formación como desarrollador backend. Aprendí que JSP permite integrar lógica de servidor directamente en páginas web, lo que es útil para aplicaciones pequeñas o de legado. Sin embargo, el verdadero poder lo encontré en <strong>Spring Boot</strong>, que simplifica enormemente la creación de APIs REST. Lo más impresionante fue ver cómo, con pocas líneas de código y anotaciones, pude crear un controlador completo con todas las operaciones CRUD. Aprendí haciendo: cada error en la configuración de la base de datos o en las rutas del controlador fue una oportunidad para investigar, leer la documentación oficial y entender mejor cómo funciona el framework. Sentí una gran satisfacción al ver mi API funcionando en Postman. Ahora entiendo mejor cómo se construyen aplicaciones web modernas con Java.</p>
+                
+                <a href="../index.html" class="week-button" style="margin-top: 30px; display: inline-block;">Volver al Inicio</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
