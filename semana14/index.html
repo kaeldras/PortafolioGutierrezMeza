@@ -1,1 +1,274 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Semana 14: Python Flask</title>
+    <link rel="stylesheet" href="../style.css"> 
+</head>
+<body>
 
+    <header class="site-header">
+        <h1>MI PORTAFOLIO ELECTRÓNICO</h1>
+        <p>Desarrollo de Aplicaciones Web</p>
+    </header>
+
+    <main class="main-content-container">
+        <div class="info-section">
+            <div class="welcome-box">
+                <h2>Semana 14: Desarrollo Backend – Python con Flask</h2>
+                
+                <h3>Descripción de temas aprendidos</h3>
+                <p>En esta semana, nos adentramos en el desarrollo backend utilizando <strong>Python</strong> junto con uno de sus frameworks más populares: <strong>Flask</strong>. Aprendimos que Python es un lenguaje de programación interpretado, de tipado dinámico y alto nivel, ampliamente utilizado en áreas como desarrollo web, ciencia de datos, inteligencia artificial y automatización.</p>
+
+                <p>Estudiamos las principales características de Python:</p>
+                <ul>
+                    <li><strong>Sintaxis clara y legible</strong>, cercana al lenguaje humano.</li>
+                    <li><strong>Indentación con espacios</strong> (4 por nivel) en lugar de llaves.</li>
+                    <li><strong>Tipado dinámico:</strong> No se declara el tipo de variable.</li>
+                    <li><strong>Multiparadigma:</strong> Soporta programación orientada a objetos, funcional e imperativa.</li>
+                    <li><strong>Manejo de archivos, estructuras de control y funciones</strong> de forma sencilla.</li>
+                </ul>
+
+                <p>Luego, ingresamos al mundo de <strong>Flask</strong>, un <strong>microframework web</strong> escrito en Python, diseñado para ser ligero, flexible y fácil de usar. Flask no impone una estructura rígida, lo que lo hace ideal para proyectos pequeños o de aprendizaje, pero también escalable con buenas prácticas.</p>
+
+                <p>Los conceptos clave que aprendimos fueron:</p>
+                <ul>
+                    <li><strong>Flask:</strong> El núcleo del framework, usado para crear aplicaciones web.</li>
+                    <li><strong>Rutas (@app.route):</strong> Decoradores que definen las URLs que activan funciones.</li>
+                    <li><strong>Request:</strong> Objeto que contiene los datos enviados por el cliente (formularios, parámetros, etc.).</li>
+                    <li><strong>Response:</strong> Datos que la app envía de vuelta al cliente.</li>
+                    <li><strong>render_template:</strong> Función que renderiza archivos HTML usando <strong>Jinja2</strong>.</li>
+                    <li><strong>Jinja2:</strong> Motor de plantillas que permite incrustar lógica en archivos HTML (condicionales, bucles, variables).</li>
+                    <li><strong>Blueprints:</strong> Para dividir la app en módulos reutilizables.</li>
+                    <li><strong>Debug Mode:</strong> Modo de desarrollo que recarga automáticamente y muestra errores detallados.</li>
+                    <li><strong>Extensiones:</strong> Como <code>Flask-SQLAlchemy</code>, <code>Flask-WTF</code>, <code>Flask-Login</code>, que amplían la funcionalidad del framework.</li>
+                </ul>
+
+                <h3>Ejemplos de Código en Python y Flask</h3>
+
+                <h4>1. Hola Mundo en Python</h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+# hola.py
+print("¡Hola, mundo!")
+
+nombre = "Jhardel"
+edad = 25
+print(f"Hola, soy {nombre} y tengo {edad} años.")
+                </pre>
+
+                <h4>2. Estructura condicional en Python</h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+edad = 20
+if edad >= 18:
+    print("Eres mayor de edad")
+elif edad == 17:
+    print("Estás cerca de ser mayor")
+else:
+    print("Eres menor de edad")
+                </pre>
+
+                <h4>3. Programación Orientada a Objetos (POO)</h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def presentarse(self):
+        return f"Hola, soy {self.nombre} y tengo {self.edad} años."
+
+# Crear objeto
+persona1 = Persona("Ginao", 22)
+print(persona1.presentarse())
+                </pre>
+
+                <h4>4. Primera aplicación Flask</h4>
+                <p>Instalamos Flask y creamos una app básica:</p>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">pip install flask</pre>
+
+                <p>Archivo <code>app.py</code>:</p>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def hola():
+    return '¡Hola Mundo desde Flask!'
+
+if __name__ == '__main__':
+    app.run(debug=True)
+                </pre>
+                <p>Al ejecutar <code>python app.py</code>, la app se inicia en <code>http://127.0.0.1:5000/</code>.</p>
+
+                <h4>5. Uso de Jinja2 en plantillas HTML</h4>
+                <p>Flask usa <strong>Jinja2</strong> para renderizar plantillas dinámicas. Creamos una carpeta <code>templates/</code> y un archivo <code>index.html</code>.</p>
+
+                <p><strong>templates/index.html</strong>:</p>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Bienvenido</title>
+</head>
+<body>
+  <h1>Hola, {{ nombre }}</h1>
+  
+  <h2>Tus frutas favoritas:</h2>
+  <ul>
+    {% for fruta in frutas %}
+      <li>{{ fruta }}</li>
+    {% endfor %}
+  </ul>
+
+  <h2>Estado:</h2>
+  {% if edad >= 18 %}
+    <p>Eres mayor de edad.</p>
+  {% elif edad >= 13 %}
+    <p>Eres adolescente.</p>
+  {% else %}
+    <p>Eres niño.</p>
+  {% endif %}
+</body>
+</html>
+                </pre>
+
+                <p><strong>app.py</strong> (actualizado):</p>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+from flask import Flask, render_template
+
+app = Flask(__name__)
+
+@app.route('/')
+def index():
+    datos = {
+        'nombre': 'Jhardel',
+        'edad': 22,
+        'frutas': ['Manzana', 'Plátano', 'Naranja']
+    }
+    return render_template('index.html', **datos)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+                </pre>
+
+                <h3>Ejercicios de laboratorio – Resultados</h3>
+                <p>Realizamos los siguientes ejercicios prácticos:</p>
+
+                <ul>
+                    <li><strong>Ejercicio 1: Crear una clase Persona y Estudiante en Python.</strong>
+                      <p>Implementamos POO creando una clase base <code>Persona</code> y una clase <code>Estudiante</code> que hereda de ella.</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+class Persona:
+    def __init__(self, nombre, edad):
+        self.nombre = nombre
+        self.edad = edad
+
+    def presentarse(self):
+        return f"Hola, soy {self.nombre} y tengo {self.edad} años."
+
+class Estudiante(Persona):
+    def __init__(self, nombre, edad, carrera):
+        super().__init__(nombre, edad)
+        self.carrera = carrera
+
+    def estudiar(self):
+        return f"{self.nombre} está estudiando {self.carrera}."
+
+# Prueba
+alumno = Estudiante("Laura", 20, "Ingeniería de Sistemas")
+print(alumno.presentarse())
+print(alumno.estudiar())
+                      </pre>
+                    </li>
+
+                    <li><strong>Ejercicio 2: Crear una aplicación web con Flask que registre estudiantes en una base de datos MySQL.</strong>
+                      <p>Configuramos una base de datos <code>escuela</code> y una tabla <code>estudiantes</code>.</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+CREATE DATABASE escuela;
+USE escuela;
+
+CREATE TABLE estudiantes(
+    IdEstudiante INT PRIMARY KEY AUTO_INCREMENT,
+    nomEstudiante VARCHAR(100),
+    dirEstudiante VARCHAR(150),
+    ciuEstudiante VARCHAR(100)
+);
+                      </pre>
+
+                      <p>Archivo <code>conexion.py</code> para conectar a MySQL:</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+import pymysql
+
+def obtener_conexion():
+    return pymysql.connect(
+        host='localhost',
+        user='root',
+        password='tu_contraseña',
+        db='escuela',
+        cursorclass=pymysql.cursors.DictCursor
+    )
+                      </pre>
+
+                      <p>Archivo <code>app.py</code> con rutas para formulario y registro:</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+from flask import Flask, render_template, request, redirect
+from conexion import obtener_conexion
+
+app = Flask(__name__)
+
+@app.route('/')
+def formulario():
+    return render_template('formulario.html')
+
+@app.route('/registrar', methods=['POST'])
+def registrar():
+    nombre = request.form['nombre']
+    direccion = request.form['direccion']
+    ciudad = request.form['ciudad']
+    
+    conexion = obtener_conexion()
+    with conexion.cursor() as cursor:
+        cursor.execute(
+            "INSERT INTO estudiantes (nomEstudiante, dirEstudiante, ciuEstudiante) VALUES (%s, %s, %s)",
+            (nombre, direccion, ciudad)
+        )
+    conexion.commit()
+    conexion.close()
+    
+    return redirect('/')
+
+if __name__ == '__main__':
+    app.run(debug=True)
+                      </pre>
+
+                      <p>Y un formulario HTML en <code>templates/formulario.html</code>:</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+<form method="POST" action="/registrar">
+  <label>Nombre:</label>
+  <input type="text" name="nombre" required><br>
+
+  <label>Dirección:</label>
+  <input type="text" name="direccion" required><br>
+
+  <label>Ciudad:</label>
+  <input type="text" name="ciudad" required><br>
+
+  <input type="submit" value="Registrar">
+</form>
+                      </pre>
+                      <p>La aplicación funcionó correctamente, permitiendo registrar estudiantes en la base de datos desde el navegador.</p>
+                    </li>
+                </ul>
+
+                <h3>Reflexión: ¿Qué aprendí? y ¿Cómo aprendí?</h3>
+                <p>Esta semana fue muy enriquecedora porque me permitió conocer un nuevo ecosistema de desarrollo backend: <strong>Python con Flask</strong>. Aprendí que Flask, aunque es un microframework, ofrece una gran flexibilidad para construir aplicaciones web dinámicas. Lo más interesante fue ver cómo se integra Python con HTML a través de Jinja2, permitiendo crear interfaces inteligentes y dinámicas. Aprendí haciendo: cada error en la conexión a la base de datos o en el manejo del formulario fue una oportunidad para investigar, leer la documentación oficial y entender mejor cómo funciona Flask. Sentí una gran satisfacción al ver mi formulario funcionando y almacenando datos en MySQL. Ahora tengo una visión más amplia de las tecnologías backend disponibles y cómo Python puede ser una excelente opción para proyectos web, especialmente en ciencia de datos e inteligencia artificial.</p>
+                
+                <a href="../index.html" class="week-button" style="margin-top: 30px; display: inline-block;">Volver al Inicio</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
