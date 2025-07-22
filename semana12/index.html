@@ -25,10 +25,10 @@
 
                 <p>El flujo de procesamiento de una página JSP es el siguiente:</p>
                 <ol>
-                    <li>El usuario solicita una página JSP (ej: `index.jsp`).</li>
+                    <li>El usuario solicita una página JSP (ej: <code>index.jsp</code>).</li>
                     <li>El servidor (como Tomcat) intercepta la solicitud.</li>
                     <li>El contenedor JSP traduce el archivo JSP a un <strong>Servlet Java</strong>.</li>
-                    <li>El servlet es compilado a bytecode (`*.class`).</li>
+                    <li>El servlet es compilado a bytecode (<code>*.class</code>).</li>
                     <li>El servlet se ejecuta, generando una respuesta en HTML.</li>
                     <li>El HTML resultante se envía al navegador del cliente.</li>
                 </ol>
@@ -128,6 +128,21 @@ out.println("<p>Visitas en esta sesión: " + contador + "</p>");
                       <p>La aplicación funcionó correctamente, demostrando el uso de objetos implícitos y la persistencia de datos en la sesión.</p>
                     </li>
                 </ul>
+
+                <h3>Pruebas de la API con Postman</h3>
+                <p>Como parte del desarrollo del proyecto backend, se implementó una API REST con <strong>Spring Boot</strong> para gestionar entidades como <code>Estudiante</code>. Aunque el enfoque principal de esta semana fue <strong>JSP y Jakarta EE</strong>, la integración con tecnologías modernas como Spring y APIs REST es común en entornos reales.</p>
+
+                <p>A continuación, se muestra una captura de pantalla de las pruebas realizadas con <strong>Postman</strong> para verificar el correcto funcionamiento de los endpoints del backend desarrollado en Java y desplegado desde <strong>IntelliJ IDEA</strong>.</p>
+
+                <!-- Imagen: Prueba GET en Postman -->
+                <div style="margin: 25px 0; text-align: center;">
+                    <img src="../assets/postman-api-estudiantes.jpg" alt="Prueba de API REST con Postman" style="width: 100%; max-width: 900px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                    <p style="font-size: 0.9em; color: #555; margin-top: 8px;">
+                        <em>Figura 1: Respuesta del endpoint <code>GET /api/estudiantes</code> en Postman. Muestra la lista de estudiantes recuperada desde la base de datos MySQL mediante un backend en Spring Boot.</em>
+                    </p>
+                </div>
+
+                <p>Esta prueba demuestra que el backend, desarrollado en Java con Spring Boot y desplegado desde <strong>IntelliJ IDEA</strong>, responde correctamente a solicitudes HTTP, integrándose con éxito en un entorno de desarrollo web completo.</p>
 
                 <h3>Reflexión: ¿Qué aprendí? y ¿Cómo aprendí?</h3>
                 <p>Esta semana fue fundamental para entender los cimientos del desarrollo backend en Java. Aprendí que JSP, aunque es una tecnología antigua, sigue siendo un excelente ejemplo de cómo se integró la lógica del servidor con la presentación en la era temprana de la web. Me impresionó ver cómo una página JSP se convierte en un servlet y se ejecuta en Tomcat, lo que me dio una visión más profunda del ciclo de vida de una aplicación web Java. Aprendí haciendo: cada error en la configuración de Tomcat o en la sintaxis de JSP fue una oportunidad para investigar, leer la documentación y reforzar mi comprensión. Sentí una gran satisfacción al ver mi primera aplicación JSP funcionando en el servidor. Ahora tengo una base sólida para avanzar hacia frameworks más modernos como Spring.</p>
