@@ -1,1 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Semana 12: Desarrollo Backend (Jakarta)</title>
+    <link rel="stylesheet" href="../style.css"> 
+</head>
+<body>
 
+    <header class="site-header">
+        <h1>MI PORTAFOLIO ELECTRÓNICO</h1>
+        <p>Desarrollo de Aplicaciones Web</p>
+    </header>
+
+    <main class="main-content-container">
+        <div class="info-section">
+            <div class="welcome-box">
+                <h2>Semana 12: Desarrollo Backend – Jakarta EE y JSP</h2>
+                
+                <h3>Descripción de temas aprendidos</h3>
+                <p>En esta semana, profundizamos en el desarrollo backend utilizando <strong>Jakarta EE</strong>, la evolución moderna de <strong>Java EE</strong> (Enterprise Edition), impulsada por la <strong>Fundación Eclipse</strong>. Aprendimos que Jakarta EE es un conjunto de especificaciones para construir aplicaciones empresariales robustas, seguras y escalables en el ecosistema Java.</p>
+
+                <p>Uno de los componentes clave que estudiamos fue <strong>Jakarta Server Pages (JSP)</strong>, una tecnología que permite crear páginas web dinámicas al incrustar código Java dentro de archivos HTML. Aunque su uso ha disminuido frente a frameworks modernos como Spring, JSP sigue siendo relevante para entender cómo funciona el backend en Java.</p>
+
+                <p>El flujo de procesamiento de una página JSP es el siguiente:</p>
+                <ol>
+                    <li>El usuario solicita una página JSP (ej: `index.jsp`).</li>
+                    <li>El servidor (como Tomcat) intercepta la solicitud.</li>
+                    <li>El contenedor JSP traduce el archivo JSP a un <strong>Servlet Java</strong>.</li>
+                    <li>El servlet es compilado a bytecode (`*.class`).</li>
+                    <li>El servlet se ejecuta, generando una respuesta en HTML.</li>
+                    <li>El HTML resultante se envía al navegador del cliente.</li>
+                </ol>
+
+                <p>Para que este proceso funcione, necesitamos un <strong>contenedor de servlets</strong>, como <strong>Apache Tomcat</strong>, que implementa las especificaciones de Jakarta EE.</p>
+
+                <h3>Elementos clave de JSP</h3>
+                <p>Los elementos principales que permiten la dinámica en una página JSP son:</p>
+                <ul>
+                    <li><strong>Scriptlets (<code><% ... %></code>):</strong> Bloques de código Java que se ejecutan en el servidor.</li>
+                    <li><strong>Expresiones (<code><%= ... %></code>):</strong> Muestran el valor de una expresión Java.</li>
+                    <li><strong>Declaraciones (<code><%! ... %></code>):</strong> Definen variables o métodos a nivel de clase.</li>
+                    <li><strong>Directivas (<code><%@ ... %></code>):</strong> Controlan el comportamiento de la página (ej: <code>page</code>, <code>include</code>, <code>taglib</code>).</li>
+                    <li><strong>Acciones (<code><jsp:...></code>):</strong> Elementos XML que realizan tareas como incluir archivos o redirigir.</li>
+                </ul>
+
+                <h3>Objetos implícitos en JSP</h3>
+                <p>JSP proporciona 9 objetos implícitos que facilitan la manipulación de datos sin necesidad de instanciarlos:</p>
+                <ul>
+                    <li><code>request</code>: Representa la solicitud HTTP del cliente.</li>
+                    <li><code>response</code>: Permite enviar la respuesta al cliente.</li>
+                    <li><code>out</code>: Usado para escribir contenido en la respuesta.</li>
+                    <li><code>session</code>: Almacena datos específicos de la sesión del usuario.</li>
+                    <li><code>application</code>: Objeto global para toda la aplicación web.</li>
+                    <li><code>config</code>: Configuración del servlet.</li>
+                    <li><code>page</code>: Referencia al objeto JSP actual.</li>
+                    <li><code>pageContext</code>: Acceso a todos los objetos de contexto.</li>
+                    <li><code>exception</code>: Disponible en páginas de error.</li>
+                </ul>
+
+                <h3>Ejemplos de código JSP</h3>
+
+                <h4>1. Página JSP básica que muestra la fecha actual</h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Fecha Actual</title>
+</head>
+<body>
+  <h1>¡Hola desde Jakarta!</h1>
+  <p>La fecha y hora actual es: <%= new java.util.Date() %></p>
+</body>
+</html>
+                </pre>
+
+                <h4>2. Uso de un scriptlet para mostrar un mensaje condicional</h4>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mensaje Condicional</title>
+</head>
+<body>
+  <h1>Bienvenido</h1>
+  <%
+    String nombre = request.getParameter("nombre");
+    if (nombre != null &amp;&amp; !nombre.isEmpty()) {
+      out.println("<p>Hola, " + nombre + "</p>");
+    } else {
+      out.println("<p>Por favor, ingresa tu nombre.</p>");
+    }
+  %>
+</body>
+</html>
+                </pre>
+
+                <h3>Ejercicios de laboratorio – Resultados</h3>
+                <p>Realizamos los siguientes ejercicios prácticos:</p>
+
+                <ul>
+                    <li><strong>Ejercicio 1: Instalación de JDK 19, IntelliJ IDEA y Apache Tomcat.</strong>
+                      <p>Seguimos el procedimiento para instalar:</p>
+                      <ul>
+                        <li><strong>OpenJDK 19:</strong> Desde <code>https://jdk.java.net/19/</code>, configurando las variables de entorno <code>JAVA_HOME</code> y <code>PATH</code>.</li>
+                        <li><strong>IntelliJ IDEA Community Edition:</strong> IDE para desarrollar aplicaciones Java.</li>
+                        <li><strong>Apache Tomcat 10:</strong> Descargado desde <code>https://tomcat.apache.org/</code>, instalado y configurado para ejecutar en el puerto 8080.</li>
+                      </ul>
+                      <p>Verificamos el funcionamiento accediendo a <code>http://localhost:8080</code> y visualizando la página de bienvenida de Tomcat.</p>
+                    </li>
+
+                    <li><strong>Ejercicio 2: Crear un proyecto web en IntelliJ y desplegarlo en Tomcat.</strong>
+                      <p>En IntelliJ IDEA, creamos un nuevo proyecto <strong>Maven</strong> con arquetipo <code>webapp</code>. Configuramos el <code>pom.xml</code> con las dependencias necesarias y agregamos un archivo <code>index.jsp</code> en <code>src/main/webapp</code>.</p>
+                      <p>Luego, configuramos Tomcat como servidor de aplicación en IntelliJ y desplegamos el proyecto. Al ejecutarlo, se abrió el navegador mostrando nuestra página JSP con la fecha actual.</p>
+                    </li>
+
+                    <li><strong>Ejercicio 3: Crear una aplicación JSP con formulario y contador de visitas.</strong>
+                      <p>Desarrollamos una página que permitía al usuario ingresar su nombre y mostrar un saludo personalizado. Además, usamos el objeto <code>session</code> para contar cuántas veces el usuario había accedido a la página en esa sesión.</p>
+                      <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+Integer contador = (Integer) session.getAttribute("contador");
+if (contador == null) contador = 0;
+session.setAttribute("contador", ++contador);
+out.println("<p>Visitas en esta sesión: " + contador + "</p>");
+                      </pre>
+                      <p>La aplicación funcionó correctamente, demostrando el uso de objetos implícitos y la persistencia de datos en la sesión.</p>
+                    </li>
+                </ul>
+
+                <h3>Reflexión: ¿Qué aprendí? y ¿Cómo aprendí?</h3>
+                <p>Esta semana fue fundamental para entender los cimientos del desarrollo backend en Java. Aprendí que JSP, aunque es una tecnología antigua, sigue siendo un excelente ejemplo de cómo se integró la lógica del servidor con la presentación en la era temprana de la web. Me impresionó ver cómo una página JSP se convierte en un servlet y se ejecuta en Tomcat, lo que me dio una visión más profunda del ciclo de vida de una aplicación web Java. Aprendí haciendo: cada error en la configuración de Tomcat o en la sintaxis de JSP fue una oportunidad para investigar, leer la documentación y reforzar mi comprensión. Sentí una gran satisfacción al ver mi primera aplicación JSP funcionando en el servidor. Ahora tengo una base sólida para avanzar hacia frameworks más modernos como Spring.</p>
+                
+                <a href="../index.html" class="week-button" style="margin-top: 30px; display: inline-block;">Volver al Inicio</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
