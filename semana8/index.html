@@ -1,1 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio - Semana 8: Evaluación Parcial</title>
+    <link rel="stylesheet" href="../style.css"> 
+</head>
+<body>
 
+    <header class="site-header">
+        <h1>MI PORTAFOLIO ELECTRÓNICO</h1>
+        <p>Desarrollo de Aplicaciones Web</p>
+    </header>
+
+    <main class="main-content-container">
+        <div class="info-section">
+            <div class="welcome-box">
+                <h2>Semana 8: Evaluación Parcial – Aplicaciones con React y Vite</h2>
+                
+                <h3>Descripción de la actividad</h3>
+                <p>En esta semana, se llevó a cabo la <strong>evaluación parcial</strong> del curso de <strong>Desarrollo de Aplicaciones Web</strong>. Esta evaluación tuvo como objetivo medir nuestras habilidades en el desarrollo de aplicaciones web modernas utilizando tecnologías clave como <strong>React</strong> y <strong>Vite</strong>, en un entorno de trabajo colaborativo.</p>
+
+                <p>La evaluación se realizó bajo las siguientes condiciones:</p>
+                <ul>
+                    <li><strong>Duración:</strong> 60 minutos.</li>
+                    <li><strong>Modalidad:</strong> Programación por pares (trabajo en pareja).</li>
+                    <li><strong>Tecnologías requeridas:</strong> React, Vite, JavaScript, componentes funcionales.</li>
+                    <li><strong>Entrega:</strong> Aplicación funcional con estructura de componentes y manejo de datos.</li>
+                </ul>
+
+                <h3>Enunciado de la evaluación</h3>
+                <p>Según el documento oficial de la evaluación, las instrucciones fueron las siguientes:</p>
+                <blockquote style="background: #f8f9fa; padding: 15px; border-left: 4px solid #3498db; margin: 20px 0; font-style: italic;">
+                    1. Desarrollar una aplicación en <strong>React y Vite</strong> con 3 componentes o más (<code>ComponentGeneral</code>, <code>ListaEstudiantes</code> y <code>Estudiante</code>).<br><br>
+                    2. En <code>ComponentGeneral</code>, leer los datos de un archivo <strong>JSON</strong> que contiene información de estudiantes.<br><br>
+                    3. Mostrar los datos en una lista utilizando el componente <code>ListaEstudiantes</code>.<br><br>
+                    4. Cada estudiante debe ser representado por el componente <code>Estudiante</code>, que muestre su información de forma clara y estructurada.
+                </blockquote>
+
+                <h3>Objetivos de la evaluación</h3>
+                <p>Esta evaluación buscaba verificar las siguientes competencias:</p>
+                <ul>
+                    <li><strong>Uso de React:</strong> Creación de componentes funcionales y manejo de props.</li>
+                    <li><strong>Manejo de estado y datos:</strong> Carga de un archivo JSON y renderizado dinámico de información.</li>
+                    <li><strong>Estructura de componentes:</strong> División lógica de la interfaz en componentes reutilizables.</li>
+                    <li><strong>Trabajo colaborativo:</strong> Programación por pares, toma de decisiones en equipo y resolución de problemas en tiempo real.</li>
+                    <li><strong>Uso de herramientas modernas:</strong> Configuración y ejecución de un proyecto con Vite + React.</li>
+                </ul>
+
+                <h3>Alcance técnico</h3>
+                <p>La aplicación debía cumplir con una estructura mínima como la siguiente:</p>
+                <pre style="background: #f4f4f4; padding: 15px; border-radius: 8px; overflow-x: auto;">
+src/
+├── components/
+│   ├── ComponentGeneral.jsx
+│   ├── ListaEstudiantes.jsx
+│   └── Estudiante.jsx
+├── data/
+│   └── estudiantes.json
+└── App.jsx
+                </pre>
+
+                <p>Donde:</p>
+                <ul>
+                    <li><code>ComponentGeneral.jsx:</code> Se encarga de cargar los datos del archivo <code>estudiantes.json</code> y pasarlos como <em>props</em> al componente lista.</li>
+                    <li><code>ListaEstudiantes.jsx:</code> Recibe la lista de estudiantes y la mapea para renderizar múltiples instancias del componente <code>Estudiante</code>.</li>
+                    <li><code>Estudiante.jsx:</code> Muestra la información de un estudiante (nombre, código, carrera, etc.) en una tarjeta o fila.</li>
+                    <li><code>estudiantes.json:</code> Archivo con datos en formato JSON, como:
+                      <pre style="background: #e8f4f8; padding: 10px; border-radius: 5px; overflow-x: auto;">
+[
+  {
+    "id": 1,
+    "nombre": "Ginao Jhardel",
+    "codigo": "2013200634H",
+    "carrera": "Ingeniería de Sistemas"
+  },
+  {
+    "id": 2,
+    "nombre": "Lucía Mendoza",
+    "codigo": "2014200756K",
+    "carrera": "Ingeniería Industrial"
+  }
+]
+                      </pre>
+                    </li>
+                </ul>
+
+                <h3>Reflexión: ¿Qué aprendí? y ¿Cómo aprendí?</h3>
+                <p>Esta evaluación fue un momento clave del curso, ya que puso a prueba nuestras habilidades técnicas bajo presión y en un entorno colaborativo. Aprendí que trabajar en pareja requiere comunicación clara, división de tareas y constante retroalimentación. Aunque no guardé una copia del código final, el proceso de desarrollo me permitió reforzar conceptos clave como la creación de componentes en React, el manejo de datos externos y la importancia de una buena estructura de proyecto.</p>
+                <p>Aprendí haciendo: tuvimos que configurar Vite, crear componentes, cargar datos JSON y asegurarnos de que todo funcionara en tiempo real. Cada error en el manejo de props o en la ruta del archivo JSON fue una oportunidad para investigar y corregir rápidamente. Sentí una gran satisfacción al ver cómo la lista de estudiantes se mostraba correctamente en pantalla. Esta experiencia me dio confianza para seguir desarrollando aplicaciones web modernas con React.</p>
+                
+                <a href="../index.html" class="week-button" style="margin-top: 30px; display: inline-block;">Volver al Inicio</a>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>
